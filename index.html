@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="no">
 
 <head>
@@ -7,40 +8,42 @@
     #tabellbakgrunn {
       background-color: lightpink;
     }
-    #rammetittel {
-      background-color: magenta;
-      font-size: 14pt;
+    #heading {
+      height: 210px;
+    }
+    #hoyre {
+      float: right;
+    }
+    #venstre {
+      float: left;
     }
     #radio{
       text-align: right;
     }
      body {
        background-image: url("hytte_bakgrunn200.png");
-       back
        background-size: cover;
+       font-size: 100%;
+       width: 100%;
+     }
+     h1 {
+       font-family: "Comic Sans MS";
+       font-size: 4em;
      }
     </style>
 </head>
 
 <body>
-  <table width="100%">
-    <tr>
-      <td>
-        <img src="sol1.png" height="200" width="200">
-      </td>
-      <td>
-        <h1>Hytteparadiset<h1>
-        </td>
-      <td>
-        <img src="sno1.png" height="200" width="200">
-      </td>
-</tr>
-</table>
+  <div id="heading">
+  <img id="venstre" src="sol1.png" style="width:200px;heigth=200px;" />
+  <img id="hoyre" src="sno1.png" style="width:200px;heigth=200px;" />
+  <h1 style="text-align: center;">Hytteparadiset</h1>
+  </div>
 
   <p>Her kommer Kristoffers og Bjarnes prosjekt i Webutvikling 1</p>
   <h2>Hytteparadiset</h2>
-  <p><h2>Her kommer Kristoffers og Bjarnes prosjekt i Webutvikling 1</h2></p>
-  <p><h2>Dette fungerer jo fint det!</h2></p>
+  <h2>Her kommer Kristoffers og Bjarnes prosjekt i Webutvikling 1. er kommer Kristoffers og Bjarnes prosjekt i Webutvikling 1</h2>
+  <h2>Dette fungerer jo fint det!</h2>
   <p></p>
 
 

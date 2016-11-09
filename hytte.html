@@ -45,11 +45,39 @@
     </style>
     <script>
       $(function(){
+        var txt = "";
         $('map[name=klikkekart] #sjohytte').click(function(e)
           {
         e.preventDefault();
-        $("#hytteliste").hide();
-        alert('test');
+        $(".main").empty();
+        $.ajax({
+          type: "GET",
+          url: "hytter.xml",
+          dataType: "xml",
+          success: function(xml) {
+            txt += '<p id="hytteliste">Sj&#248;hytta</p>';
+            txt += "<table><tr><td>Omr&#229;de:</td><td>";
+            txt += $(xml).find('hytte[hytteid="1"] omraade').text() + "</td></tr>";
+            txt += "<tr><td>Type hytte:</td><td>";
+            txt += $(xml).find('hytte[hytteid="1"] type').text() + "</td></tr>";
+            txt += "<tr><td>Antall sengeplasser:</td><td>";
+            txt += $(xml).find('hytte[hytteid="1"] antall_sengeplasser').text() + "</td></tr>";
+            txt += "<tr><td>Vann:</td><td>";
+            txt += $(xml).find('hytte[hytteid="1"] vann').text() + "</td></tr>";
+            txt += "<tr><td>Toalett:</td><td>";
+            txt += $(xml).find('hytte[hytteid="1"] toalett').text() + "</td></tr>";
+            txt += "<tr><td>Dusj:</td><td>";
+            txt += $(xml).find('hytte[hytteid="1"] dusj').text() + "</td></tr>";
+            txt += "<tr><td>Tv:</td><td>";
+            txt += $(xml).find('hytte[hytteid="1"] tv').text() + "</td></tr>";
+            txt += "<tr><td>Internett:</td><td>";
+            txt += $(xml).find('hytte[hytteid="1"] internett').text() + "</td></tr>";
+            txt += "<tr><td>Beskrivelse:</td><td colspan='2'>";
+            txt += $(xml).find('hytte[hytteid="1"] beskrivelse').text() + "</td></tr>";
+            txt += "</table>"
+            $(".main").append(txt);
+          }
+         });
       });
       });
     </script>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <katalog>
- <hytte>
+ <hytte hytteid="1">
    <navn>Sj&#248;hytta</navn>
    <omraade>Agdenes</omraade>
    <type>Sj&#248;hytte</type>
@@ -11,9 +11,11 @@
    <tv>Ja</tv>
    <internett>tr&#229;dl&#248;st</internett>
    <bilde>sjohytta.jpg</bilde>
-</hytte>
+   <beskrivelse>Hytte i flotte omgivelser ytterst i
+     Trondheimsfjorden. Hytta har eget naust med b&#229;t.</beskrivelse>
+ </hytte>
 
-<hytte>
+<hytte hytteid="2">
   <navn>Fjellhytta</navn>
   <omraade>Mer&#229;ker/Stj&#248;rdal</omraade>
   <type>Fjellhytte</type>
@@ -24,6 +26,8 @@
   <tv>Nei</tv>
   <internett>Nei</internett>
   <bilde>fjellhytta.jpg</bilde>
-</hytte>
+  <beskrivelse>Hytte i fantastisk fjellområde i Mer&#229;ker
+    kommune. Kort veg til fiskevann med ørret.</beskrivelse>
+ </hytte>
 
 </katalog>

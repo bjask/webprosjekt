@@ -43,6 +43,16 @@
        font-size: 4em;
      }
     </style>
+    <script>
+      $(function(){
+        $('map[name=klikkekart] #sjohytte').click(function(e)
+          {
+        e.preventDefault();
+        $("#hytteliste").hide();
+        alert('test');
+      });
+      });
+    </script>
 </head>
 
 <body>
@@ -53,7 +63,7 @@
   </div>
   <img id="storkart" src="storkart1.png" usemap="#klikkekart" alt="områdekart" style="width:1082px;height:641px;" />
   <map name="klikkekart">
-    <area shape="circle" coords="137,59,20" alt="Sjøhytta" href="sjohytta.html" />
+    <area id="sjohytte" shape="circle" coords="137,59,20" alt="Sjøhytta" href="#tull" />
     <area shape="circle" coords="1035,327,20" alt="Fjellhytta" href="fjellhytta.html" />
   </map>
 <div class="main">

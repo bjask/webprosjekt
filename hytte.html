@@ -4,12 +4,21 @@
 
 <head>
   <title>Hytteparadiset</title>
+  <script src="jquery-3.1.1.js"></script>
+
   <style>
   #storkart {
     float: right;
   }
     #tabellbakgrunn {
       background-color: lightpink;
+    }
+    #hytteliste {
+      font-size: 2em;
+      font-family: "Comic Sans MS";
+    }
+    table {
+      font-family: "Verdana, Arial, Helvetica, sans-serif";
     }
     #heading {
       height: 210px;
@@ -47,6 +56,31 @@
     <area shape="circle" coords="137,59,20" alt="Sjøhytta" href="sjohytta.html" />
     <area shape="circle" coords="1035,327,20" alt="Fjellhytta" href="fjellhytta.html" />
   </map>
-
+<div class="main">
+  <p id="hytteliste">Hyttene v&aring;re:</p>
+  <script>
+$(document).ready(function(){
+ var txt = "";
+ $.ajax({
+   type: "GET",
+   url: "hytter.xml",
+   dataType: "xml",
+   success: function(xml) {
+     txt += "<table>";
+     $(xml).find("hytte").each(function(){
+       txt += "<tr><td>Navn: " + $(this).find("navn").text() +
+       "</td><td>Sted: " + $(this).find("omraade").text() +
+       "</td></tr><tr><td>Type: " + $(this).find("type").text() +
+       "</td><td>Antall sengeplasser: " + $(this).find("antall_sengeplasser").text() +
+       "</td></tr><tr><td>" + $(this).find("bilde").text() +
+       "</td></tr><tr></tr>";
+     });
+     txt += "</table>";
+     $(".main").append(txt);
+   }
+  });
+});
+</script>
+</div>
 </body>
 </html>

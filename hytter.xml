@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<katalog>
+ <hytte>
+   <navn>Sj&#248;hytta</navn>
+   <omraade>Agdenes</omraade>
+   <type>Sj&#248;hytte</type>
+   <antall_sengeplasser>4</antall_sengeplasser>
+   <vann>Innlagt</vann>
+   <toalett>Vannklosett</toalett>
+   <dusj>Ja</dusj>
+   <tv>Ja</tv>
+   <internett>tr&#229;dl&#248;st</internett>
+   <bilde>sjohytta.jpg</bilde>
+</hytte>
+
+<hytte>
+  <navn>Fjellhytta</navn>
+  <omraade>Mer&#229;ker/Stj&#248;rdal</omraade>
+  <type>Fjellhytte</type>
+  <antall_sengeplasser>6</antall_sengeplasser>
+  <vann>Ikke innlagt</vann>
+  <toalett>Utedo</toalett>
+  <dusj>Nei</dusj>
+  <tv>Nei</tv>
+  <internett>Nei</internett>
+  <bilde>fjellhytta.jpg</bilde>
+</hytte>
+
+</katalog>

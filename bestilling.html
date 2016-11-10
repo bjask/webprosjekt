@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<HTML>
+  <head>
+    <meta charset="utf-8">
+    <link rel="StyleSheet" type="text/css" href="bestilling.css" />
+    <title>Bestill hytte</title>
+  </head>
+  <body>
+
+<div align="center">
+    <fieldset>
+      <legend>Hytte type</legend>
+      <table>
+        <tr>
+          <td><label for="område">Område: </label></td>
+          <td><select id="omårde" required="true">
+            <option>Område</option>
+            <option>Agdenes</option>
+            <option>Meråker</option>
+            <option>Stjørdal</option>
+          </select>
+        </tr>
+        <tr>
+          <td><label for="type">Type hytte: </label></td>
+          <td><select id="type" required="true">
+            <option>Hyttetype</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+          </select>
+        </tr>
+        <tr>
+          <td><label for="senger">Sengeplasser: </label></td>
+          <td><select id="senger" required="true">
+            <option>Antall sengeplasser</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select>
+        </tr>
+      </table>
+    </fieldset>
+
+    <fieldset>
+      <legend>Kunde informasjon</legend>
+      <table>
+        <tr>
+          <td><label for="fornavn">Fornavn: </label></td>
+          <td><input type="text" name="fornavn" id="fornavn"></td>
+        </tr>
+        <tr>
+          <td><label for="etternavn">Etternavn: </label></td>
+          <td><input type="text" name="etternavn" id="etternavn"></td>
+        </tr>
+        <tr>
+          <td><label for="gate">Adresse: </label></td>
+          <td><input type="text" name="gate" id="gate"></td>
+          <td><label for="hus">Husnummer: </label></td>
+          <td><input type="text" name="hus" id="hus"></td>
+        </tr>
+        <tr>
+          <td><label for="postnr">Postnummer: </label></td>
+          <td><input type="text" name="postnr" id="postnr"></td>
+          <td><label for="poststed">Poststed: </label></td>
+          <td><input type="text" name="poststed" id="poststed"></td>
+        </tr>
+        <tr>
+          <td><label for="epost">E-post adresse: </label></td>
+          <td><input type="text" name="epost" id="epost"></td>
+        </tr>
+        <tr>
+          <td><label for="mobil">Mobilnummer: </label></td>
+          <td><input type="text" name="mobil" id="mobil"></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td><label for="erMedlem">Er du medlem av skiforeningen?</label></td>
+        </tr>
+        <tr>
+          <td>Ja<input type="radio" name="medlem?" id="erMedlem" value="1"/>Nei<input type="radio" name="medlem?" id="erIkkeMedlem" value="0"/></td>
+        </tr>
+      </table>
+    </fieldset>
+
+    <fieldset>
+      <legend>Betalingsinformasjon</legend>
+      <table>
+        <tr>
+          <td><label for="betalingstype">Betalingstype: </label></td>
+          <td><select id="betalingstype" required="true">
+            <option>Betalingstype</option>
+            <option>VISA</option>
+            <option>MasterCard</option>
+            <option>Faktura</option>
+          </select>
+        </tr>
+        <tr>
+          <td><label for="kortnummer">Kortnummer: </label></td>
+          <td><input type="text" name="kortnummer" id="kortnummer"></td>
+        </tr>
+        <tr>
+          <td><label for="korteier">Kortholders navn: </label></td>
+          <td><input type="text" name="korteier" id="korteier"></td>
+        </tr>
+        <tr>
+          <td><label for="cvc">CVC-kode: </label></td>
+          <td><input type="text" name="cvc" id="cvc"></td>
+        </tr>
+      </table>
+      </table>
+    </fieldset>
+  </div>
+    </body>

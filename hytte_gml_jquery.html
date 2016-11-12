@@ -43,19 +43,64 @@
        font-size: 4em;
      }
     </style>
+    <script>
+      $(function(){
+        var txt = "";
+        var klikkekall = "";
+        var hyttenavn = "";
+        var hyttenr = "";
+        var hytteomraade = "";
+        var tekst = 'hytte[hytteid="';
+        $("map[name=klikkekart] #sjohytte").mouseenter(function(){
+          hyttenr="1";
+          klikkekall="map[name=klikkekart] #sjohytte";
+          hyttenavn="Sj&#248;hytta";
+  //        alert(klikkekall);
+        });
+        $("map[name=klikkekart] #sjohytte").click(function(e)
+          {
+        e.preventDefault();
+        $(".main").empty();
+        hytteomraade = tekst + hyttenr + '"] omraade';
+        alert(hytteomraade);
 
+
+        $.ajax({
+          type: "GET",
+          url: "hytter.xml",
+          dataType: "xml",
+          success: function(xml) {
+            txt += '<p id="hytteliste">' + hyttenavn +'</p>';
+            txt += "<table><tr><td>Omr&#229;de:</td><td>";
+            txt += $(xml).find(hytteomraade).text() + "</td></tr>";
+            txt += "<tr><td>Type hytte:</td><td>";
+            txt += $(xml).find('hytte[hytteid="1"] type').text() + "</td></tr>";
+            txt += "<tr><td>Antall sengeplasser:</td><td>";
+            txt += $(xml).find('hytte[hytteid="1"] antall_sengeplasser').text() + "</td></tr>";
+            txt += "<tr><td>Vann:</td><td>";
+            txt += $(xml).find('hytte[hytteid="1"] vann').text() + "</td></tr>";
+            txt += "<tr><td>Toalett:</td><td>";
+            txt += $(xml).find('hytte[hytteid="1"] toalett').text() + "</td></tr>";
+            txt += "<tr><td>Dusj:</td><td>";
+            txt += $(xml).find('hytte[hytteid="1"] dusj').text() + "</td></tr>";
+            txt += "<tr><td>Tv:</td><td>";
+            txt += $(xml).find('hytte[hytteid="1"] tv').text() + "</td></tr>";
+            txt += "<tr><td>Internett:</td><td>";
+            txt += $(xml).find('hytte[hytteid="1"] internett').text() + "</td></tr>";
+            txt += "<tr><td>Beskrivelse:</td><td colspan='2'>";
+            txt += $(xml).find('hytte[hytteid="1"] beskrivelse').text() + "</td></tr>";
+            txt += "</table>";
+            $(".main").append(txt);
+          }
+         });
+       });
+
+      });
+    </script>
     <script>
     function VelgHytte(hyttenavn, hyttenr) {
       var tekst='hytte[hytteid="';
       var hytteomraade = tekst + hyttenr + '"] omraade';
-      var hyttetype = tekst + hyttenr + '"] type';
-      var hytteantall_sengeplasser = tekst + hyttenr + '"] antall_sengeplasser';
-      var hyttevann = tekst + hyttenr + '"] vann';
-      var hyttetoalett = tekst + hyttenr + '"] toalett';
-      var hyttedusj = tekst + hyttenr + '"] dusj';
-      var hyttetv = tekst + hyttenr + '"] tv';
-      var hytteinternett = tekst + hyttenr + '"] internett';
-      var hyttebeskrivelse = tekst + hyttenr + '"] beskrivelse';
       var txt = "";
       $(".main").empty();
       $.ajax({
@@ -67,21 +112,21 @@
           txt += "<table><tr><td>Omr&#229;de:</td><td>";
           txt += $(xml).find(hytteomraade).text() + "</td></tr>";
           txt += "<tr><td>Type hytte:</td><td>";
-          txt += $(xml).find(hyttetype).text() + "</td></tr>";
+          txt += $(xml).find('hytte[hytteid="1"] type').text() + "</td></tr>";
           txt += "<tr><td>Antall sengeplasser:</td><td>";
-          txt += $(xml).find(hytteantall_sengeplasser).text() + "</td></tr>";
+          txt += $(xml).find('hytte[hytteid="1"] antall_sengeplasser').text() + "</td></tr>";
           txt += "<tr><td>Vann:</td><td>";
-          txt += $(xml).find(hyttevann).text() + "</td></tr>";
+          txt += $(xml).find('hytte[hytteid="1"] vann').text() + "</td></tr>";
           txt += "<tr><td>Toalett:</td><td>";
-          txt += $(xml).find(hyttetoalett).text() + "</td></tr>";
+          txt += $(xml).find('hytte[hytteid="1"] toalett').text() + "</td></tr>";
           txt += "<tr><td>Dusj:</td><td>";
-          txt += $(xml).find(hyttedusj).text() + "</td></tr>";
+          txt += $(xml).find('hytte[hytteid="1"] dusj').text() + "</td></tr>";
           txt += "<tr><td>Tv:</td><td>";
-          txt += $(xml).find(hyttetv).text() + "</td></tr>";
+          txt += $(xml).find('hytte[hytteid="1"] tv').text() + "</td></tr>";
           txt += "<tr><td>Internett:</td><td>";
-          txt += $(xml).find(hytteinternett).text() + "</td></tr>";
+          txt += $(xml).find('hytte[hytteid="1"] internett').text() + "</td></tr>";
           txt += "<tr><td>Beskrivelse:</td><td colspan='2'>";
-          txt += $(xml).find(hyttebeskrivelse).text() + "</td></tr>";
+          txt += $(xml).find('hytte[hytteid="1"] beskrivelse').text() + "</td></tr>";
           txt += "</table>";
           $(".main").append(txt);
         }

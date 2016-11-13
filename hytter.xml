@@ -3,6 +3,7 @@
  <hytte hytteid="1">
    <navn>Sj&#248;hytta</navn>
    <omraade>Agdenes</omraade>
+   <vaer>S%c3%b8r-Tr%c3%b8ndelag/Agdenes/Selven~215704</vaer>
    <type>Sj&#248;hytte</type>
    <antall_sengeplasser>4</antall_sengeplasser>
    <vann>Innlagt</vann>
@@ -13,11 +14,12 @@
    <bilde>sjohytta.jpg</bilde>
    <beskrivelse>Hytte i flotte omgivelser ytterst i
      Trondheimsfjorden. Hytta har eget naust med b&#229;t.</beskrivelse>
- </hytte>
+  </hytte>
 
 <hytte hytteid="2">
   <navn>Fjellhytta</navn>
   <omraade>Mer&#229;ker/Stj&#248;rdal</omraade>
+  <vaer>Nord-Tr%c3%b8ndelag/Stj%c3%b8rdal/Flornes</vaer>  
   <type>Fjellhytte</type>
   <antall_sengeplasser>6</antall_sengeplasser>
   <vann>Ikke innlagt</vann>
@@ -28,6 +30,6 @@
   <bilde>fjellhytta.jpg</bilde>
   <beskrivelse>Hytte i fantastisk fjellomr&#229;de i Mer&#229;ker
     kommune. Kort veg til fiskevann med &#248;rret.</beskrivelse>
- </hytte>
+</hytte>
 
 </katalog>

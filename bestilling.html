@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<HTML>
+<html>
   <head>
-    <meta charset="utf-8">
-    <link rel="StyleSheet" type="text/css" href="bestilling.css" />
+    <meta charset="utf-8"/>
+    <link rel="StyleSheet" type="text/css" href="stilark.css" />
     <title>Bestill hytte</title>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
   </head>
   <body>
-
+    <div w3-include-html="tittel.html" id="heading"></div>
+    <div w3-include-html="meny.html" id="meny"></div>
+    <script>w3IncludeHTML();</script>
 <div align="center">
     <fieldset>
       <legend>Hytte type</legend>
@@ -120,3 +123,4 @@
     </fieldset>
   </div>
     </body>
+</html>

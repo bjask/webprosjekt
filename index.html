@@ -4,41 +4,15 @@
 
 <head>
   <title>Hytteparadiset</title>
-  <style>
-    #tabellbakgrunn {
-      background-color: lightpink;
-    }
-    #heading {
-      height: 210px;
-    }
-    #hoyre {
-      float: right;
-    }
-    #venstre {
-      float: left;
-    }
-    #radio{
-      text-align: right;
-    }
-     body {
-       background-image: url("hytte_bakgrunn200.png");
-       background-size: cover;
-       font-size: 100%;
-       width: 100%;
-     }
-     h1 {
-       font-family: "Comic Sans MS";
-       font-size: 4em;
-     }
-    </style>
+  <meta charset="utf-8"/>
+  <link rel="StyleSheet" type="text/css" href="stilark.css" />
+  <script src="http://www.w3schools.com/lib/w3data.js"></script>
 </head>
 
 <body>
-  <div id="heading">
-  <img id="venstre" src="sol1.png" alt="solclipart" style="width:200px;heigth=200px;" />
-  <img id="hoyre" src="sno1.png" alt="snøclipart" style="width:200px;heigth=200px;" />
-  <h1 style="text-align: center;">Hytteparadiset</h1>
-  </div>
+  <div w3-include-html="tittel.html" id="heading"></div>
+  <div w3-include-html="meny.html" id="meny"></div>
+  <script>w3IncludeHTML();</script>
 
 </body>
 

@@ -1,0 +1,54 @@
+fieldset {
+  width: 300px;
+}
+#storkart {
+  float: right;
+}
+  #tabellbakgrunn {
+    background-color: lightpink;
+  }
+  #hytteliste {
+    font-size: 2em;
+    font-family: "Comic Sans MS";
+  }
+  #heading {
+    height: 110px;
+  }
+  #meny {
+    height: 60px;
+  }
+  #menytabell {
+    background-color: lightblue;
+    font-size: 2em;
+    font-family: "Comic Sans MS";
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+  }
+  #hoyre {
+    float: right;
+  }
+  #venstre {
+    float: left;
+  }
+  #radio{
+    text-align: right;
+  }
+  table.hoved {
+    font-size: 1em;
+    font-family: "Comic Sans MS";
+  }
+  div.main {
+    font-size: 1.2em;
+    font-family: "Comic Sans MS";
+  }
+  body {
+     background-image: url("hytte_bakgrunn200.png");
+     background-size: cover;
+     font-size: 100%;
+     width: 100%;
+   }
+   h1 {
+     font-family: "Comic Sans MS";
+     font-size: 4em;
+   }

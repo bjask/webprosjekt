@@ -1,7 +1,7 @@
   fieldset {
     width: 300px;
   }
-  circle { cursor: pointer; }
+  circle { cursor: pointer;
   }
   #storkart {
     float: right;

@@ -1,6 +1,6 @@
 function VelgHytte(hyttenavn, hyttenr) {
   var tekst='hytte[hytteid="';
-  var hytteomraade = tekst + hyttenr + '"] omraade';
+  var hytteomraade = tekst + hyttenr + '"] omraade'; //Lager variabler for å lette jquery-setningene lenger ned
   var hyttetype = tekst + hyttenr + '"] type';
   var hytteantall_sengeplasser = tekst + hyttenr + '"] antall_sengeplasser';
   var hyttevann = tekst + hyttenr + '"] vann';
@@ -10,17 +10,21 @@ function VelgHytte(hyttenavn, hyttenr) {
   var hytteinternett = tekst + hyttenr + '"] internett';
   var hyttebeskrivelse = tekst + hyttenr + '"] beskrivelse';
   var hyttevaer = tekst + hyttenr + '"] vaer';
-  var txt = "";
+  var hyttebilde = tekst + hyttenr + '"] bilde';
+  var txt = "";                                   //txt lagrer alt som skal skrives til hytte.html når det velges hytte.
   $(".main").empty();
-//    txt += '<iframe src="http://www.yr.no/sted/Norge/S%c3%b8r-Tr%c3%b8ndelag/Agdenes/Selven~215704/ekstern_boks_liten.html" width="180" height="322" frameborder="0" style="margin: 10px 0 10px 0" scrolling="no"></iframe>';
-  $.ajax({
+  $("#hytteliste").hide();
+//  $("#storkart").attr({width: "100%", height: ""});
+//  $("#storkart").hide();
+  $.ajax({          //Her hentes info om hyttene fra hytter.xml-fila.
     type: "GET",
     url: "hytter.xml",
     dataType: "xml",
     success: function(xml) {
-      txt += '<iframe src="http://www.yr.no/sted/Norge/' + $(xml).find(hyttevaer).text() +'/ekstern_boks_liten.html" width="180" height="322" frameborder="0" style="margin: 10px 0 10px 0" scrolling="no"></iframe>'
+
       txt += '<p id="hytteliste">' + hyttenavn +'</p>';
-      txt += "<table class='hoved'><tr><td>Omr&#229;de:</td><td>";
+      txt += '<img src="' + $(xml).find(hyttebilde).text() + '" style="width:431px;heigth=260px;"/>';
+      txt += "<table class='hoved'><tr><td>Omr&#229;de:</td><td>";   //Presenterer hytteinfoen i en tabell
       txt += $(xml).find(hytteomraade).text() + "</td></tr>";
       txt += "<tr><td>Type hytte:</td><td>";
       txt += $(xml).find(hyttetype).text() + "</td></tr>";
@@ -39,7 +43,10 @@ function VelgHytte(hyttenavn, hyttenr) {
       txt += "<tr><td>Beskrivelse:</td><td colspan='2'>";
       txt += $(xml).find(hyttebeskrivelse).text() + "</td></tr>";
       txt += "</table>";
-      $(".main").append(txt);
+      txt += '<iframe src="http://www.yr.no/sted/Norge/' + $(xml).find(hyttevaer).text() + //Værvarsel
+      '/ekstern_boks_liten.html" width="180" height="322" frameborder="0" style="margin: 10px 0 10px 0" scrolling="no"></iframe>';
+
+      $(".main").append(txt);  //Alt i variabelen txt skrives til hytte.html
     }
    });
    }

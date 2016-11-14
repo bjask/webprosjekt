@@ -1,11 +1,10 @@
-fieldset {
-  width: 300px;
-}
-#storkart {
-  float: right;
-}
-  #tabellbakgrunn {
-    background-color: lightpink;
+  fieldset {
+    width: 300px;
+  }
+  circle { cursor: pointer; }
+  }
+  #storkart {
+    float: right;
   }
   #hytteliste {
     font-size: 2em;
@@ -34,9 +33,18 @@ fieldset {
   #radio{
     text-align: right;
   }
-  table.hoved {
-    font-size: 1em;
-    font-family: "Comic Sans MS";
+  .hoved {
+    font-size: 0.7em;
+    font-family: "Verdana";
+    text-align: center;
+    border : 1px solid black;
+    border-collapse: collapse;
+    width: 23%;
+  }
+  .liten {
+    font-family: "Verdana";
+    font-weight: bold;
+    font-size: 0.8em;
   }
   div.main {
     font-size: 1.2em;

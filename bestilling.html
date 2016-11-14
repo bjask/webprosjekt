@@ -4,19 +4,20 @@
     <meta charset="utf-8"/>
     <link rel="StyleSheet" type="text/css" href="stilark.css" />
     <title>Bestill hytte</title>
-    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script> <!-- script for å inkludere filer med html-tagger -->
   </head>
   <body>
     <div w3-include-html="tittel.html" id="heading"></div>
     <div w3-include-html="meny.html" id="meny"></div>
     <script>w3IncludeHTML();</script>
+       <!--Avsnittet inkluderer filer med html-innhold for tittel og meny -->
 <div align="center">
     <fieldset>
       <legend>Hytte type</legend>
       <table>
         <tr>
-          <td><label for="område">Område: </label></td>
-          <td><select id="omårde" required="true">
+          <td><label for="omraade">Område: </label></td>
+          <td><select id="omraade" required="true">
             <option>Område</option>
             <option>Agdenes</option>
             <option>Meråker</option>

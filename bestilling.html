@@ -12,43 +12,50 @@
     <script>w3IncludeHTML();</script>
        <!--Avsnittet inkluderer filer med html-innhold for tittel og meny -->
 <div align="center">
+  <form action="http://www.iie.hist.no/fag/webutvikling1/prosjekt/behandle.php" name="kristofferstrom@hotmail.com" id="bestilling">
     <fieldset>
-      <legend>Hytte type</legend>
+      <legend>Hytte</legend>
       <table>
         <tr>
-          <td><label for="omraade">Område: </label></td>
-          <td><select id="omraade" required="true">
-            <option>Område</option>
-            <option>Agdenes</option>
-            <option>Meråker</option>
-            <option>Stjørdal</option>
+          <td><label for="hytteNavn">Hyttenavn: </label></td>
+          <td><select id="hytteNavn" required="true">
+            <option>Navn</option>
+            <option>Sjøhytta</option>
+            <option>Fjellhytta</option>
+            <option>Skogshytta</option>
           </select>
         </tr>
         <tr>
-          <td><label for="type">Type hytte: </label></td>
-          <td><select id="type" required="true">
-            <option>Hyttetype</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-          </select>
+          <td><label for="startDato">Start dato: </label></td>
+          <td><input type="date" name="startDato" id="startDato" required="true"></td>
+          <td><label for="startTime">Tid: </label></td>
+          <td><input type="time" name="startTime" id="startTime" required="true"></td>
         </tr>
         <tr>
-          <td><label for="senger">Sengeplasser: </label></td>
-          <td><select id="senger" required="true">
-            <option>Antall sengeplasser</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-          </select>
+          <td><label for="sluttDato">Slutt dato: </label></td>
+          <td><input type="date" name="sluttDato" id="sluttDato" required="true"></td>
+          <td><label for="tilTime">Tid: </label></td>
+          <td><input type="time" name="tilTime" id="tilTime" required="true"></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td><label for="erMedlem">Er du medlem av skiforeningen?</label></td>
+        </tr>
+        <tr>
+          <td>Ja<input type="radio" name="medlem?" id="erMedlem" value="1"/>Nei<input type="radio" name="medlem?" id="erIkkeMedlem" value="0" checked="true"/></td>
+        </tr>
+        <tr>
+          <td><label for="vask">Ønsker du betalt vask? (300kr)</label></td>
+        </tr>
+        <tr>
+          <td>Ja<input type="radio" name="vask" id="ønskerVask" value="1" checked="true"/>Nei<input type="radio" name="vask" id="ønskerIkkeVask" value="0"/></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td>Total pris:</td>
+          <td>pris her</td>
         </tr>
       </table>
     </fieldset>
@@ -58,46 +65,32 @@
       <table>
         <tr>
           <td><label for="fornavn">Fornavn: </label></td>
-          <td><input type="text" name="fornavn" id="fornavn"></td>
+          <td><input type="text" name="fornavn" id="fornavn" required="true"></td>
         </tr>
         <tr>
           <td><label for="etternavn">Etternavn: </label></td>
-          <td><input type="text" name="etternavn" id="etternavn"></td>
+          <td><input type="text" name="etternavn" id="etternavn" required="true"></td>
         </tr>
         <tr>
           <td><label for="gate">Adresse: </label></td>
-          <td><input type="text" name="gate" id="gate"></td>
+          <td><input type="text" name="gate" id="gate" required="true"></td>
           <td><label for="hus">Husnummer: </label></td>
-          <td><input type="text" name="hus" id="hus"></td>
+          <td><input type="number" name="hus" id="hus" max="1000" min="1" required="true"></td>
         </tr>
         <tr>
           <td><label for="postnr">Postnummer: </label></td>
-          <td><input type="text" name="postnr" id="postnr"></td>
+          <td><input type="number" name="postnr" id="postnr" max="9999" min="1" required="true"></td>
           <td><label for="poststed">Poststed: </label></td>
-          <td><input type="text" name="poststed" id="poststed"></td>
+          <td><input type="text" name="poststed" id="poststed" required="true"></td>
         </tr>
         <tr>
-          <td><label for="epost">E-post adresse: </label></td>
-          <td><input type="text" name="epost" id="epost"></td>
+          <td><label for="epost">E-post: </label></td>
+          <td><input type="email" name="epost" id="epost" required="true"></td>
         </tr>
         <tr>
           <td><label for="mobil">Mobilnummer: </label></td>
-          <td><input type="text" name="mobil" id="mobil"></td>
+          <td><input type="tel" name="mobil" id="mobil" min="0000000000" max="99999999" required="true"></td>
         </tr>
-      </table>
-      <table>
-        <tr>
-          <td><label for="erMedlem">Er du medlem av skiforeningen?</label></td>
-        </tr>
-        <tr>
-          <td>Ja<input type="radio" name="medlem?" id="erMedlem" value="1"/>Nei<input type="radio" name="medlem?" id="erIkkeMedlem" value="0"/></td>
-        </tr>
-      </table>
-    </fieldset>
-
-    <fieldset>
-      <legend>Betalingsinformasjon</legend>
-      <table>
         <tr>
           <td><label for="betalingstype">Betalingstype: </label></td>
           <td><select id="betalingstype" required="true">
@@ -107,9 +100,15 @@
             <option>Faktura</option>
           </select>
         </tr>
+      </table>
+    </fieldset>
+
+    <fieldset>
+      <legend>Betalingsinformasjon</legend>
+      <table>
         <tr>
           <td><label for="kortnummer">Kortnummer: </label></td>
-          <td><input type="text" name="kortnummer" id="kortnummer"></td>
+          <td><input type="number" name="kortnummer" id="kortnummer"></td>
         </tr>
         <tr>
           <td><label for="korteier">Kortholders navn: </label></td>
@@ -117,11 +116,25 @@
         </tr>
         <tr>
           <td><label for="cvc">CVC-kode: </label></td>
-          <td><input type="text" name="cvc" id="cvc"></td>
+          <td><input type="number" name="cvc" id="cvc" max="999" min="0"></td>
         </tr>
+        <tr>
+          <td><label for="utløp">Utløpsdato: </label></td>
+          <td><input type="month" name="utløp" id="utløp"></td>
       </table>
       </table>
     </fieldset>
+
+    <fieldset>
+      <legend></legend>
+      <table>
+        <tr>
+          <td><input type="submit" value="Bestill"></td>
+          <td><input type="reset" value="Tøm skjema"></td>
+        </tr>
+      </table>
+    </fieldset>
+  </form>
   </div>
     </body>
 </html>

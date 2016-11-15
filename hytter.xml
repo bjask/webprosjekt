@@ -2,7 +2,7 @@
 <katalog>
  <hytte hytteid="1">
    <hyttenr>1</hyttenr>
-   <navn>Sj&#248;hytta</navn>
+   <navn>Havblikk</navn>
    <omraade>Agdenes</omraade>
    <vaer>S%c3%b8r-Tr%c3%b8ndelag/Agdenes/Selven~215704</vaer>
    <type>Sj&#248;hytte</type>
@@ -19,7 +19,7 @@
 
 <hytte hytteid="2">
   <hyttenr>2</hyttenr>
-  <navn>Fjellhytta</navn>
+  <navn>Moserabben</navn>
   <omraade>Mer&#229;ker/Stj&#248;rdal</omraade>
   <vaer>Nord-Tr%c3%b8ndelag/Stj%c3%b8rdal/Flornes</vaer>
   <type>Fjellhytte</type>

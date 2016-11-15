@@ -21,6 +21,11 @@
   #storkart {
     float: right;
   }
+  #map {
+    float:right;
+    height: 600px;
+    width: 70%;
+  }
   #hytteliste {
     font-size: 2em;
     font-family: "Comic Sans MS";

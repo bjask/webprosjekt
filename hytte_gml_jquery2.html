@@ -31,35 +31,11 @@ function normalarea(nummer) {
   <div w3-include-html="tittel.html" id="heading"></div>
   <div w3-include-html="meny.html" id="meny"></div>
   <script>w3IncludeHTML();</script>  <!--Avsnittet inkluderer filer med html-innhold for tittel og meny -->
-  <!--<img id="storkart" src="storkart1.png" usemap="#klikkekart" alt="områdekart" style="width:1082px;height:641px;" />
+  <img id="storkart" src="storkart1.png" usemap="#klikkekart" alt="områdekart" style="width:1082px;height:641px;" />
   <map name="klikkekart">
     <area id="hytte1" style="color:blue" shape="circle" coords="137,59,20" alt="Sj&#248;hytta" onmouseover="bakgrunn(1)" onmouseout="normal(1)" onclick="VelgHytte('Sj&#248;hytta', '1'); return false;" href="#tull" />
     <area id="hytte2" shape="circle" coords="1035,327,20" alt="Fjellhytta"  onmouseover="bakgrunn(2)" onmouseout="normal(2)" onclick="VelgHytte('Fjellhytta', '2'); return false;" href="#tull" />
-  </map> -->
-
-  <div id="map" ></div>
-
-<script>
-function myMap() {
-  var mapCanvas = document.getElementById("map");
-  var myCenter = new google.maps.LatLng(63.428857, 10.390009);
-  var Moserabben = new google.maps.LatLng(63.397818, 11.422038);
-  var Havblikk = new google.maps.LatLng(63.623229, 9.731516);
-  var mapOptions = {
-    center: myCenter,
-    zoom: 9
-  };
-  var map1 = new google.maps.Map(mapCanvas, mapOptions);
-  var marker1 = new google.maps.Marker({position:Havblikk});
-  marker1.setMap(map1);
-  var marker2 = new google.maps.Marker({position:Moserabben});
-  marker2.setMap(map1);
-}
-</script>
-
-<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
-
-
+  </map>
   <p id="hytteliste">Hyttene v&aring;re:</p>
 
   <div class="main">
@@ -74,7 +50,10 @@ $(document).ready(function(){
    success: function(xml) {
      $(xml).find("hytte").each(function(){
        txt += "<table class='hoved'>";
-       txt += "<tr class='radstil" + $(this).find("hyttenr").text() + "'><td>Navn: " + $(this).find("navn").text() +
+       txt += "<tr class='radstil" + $(this).find("hyttenr").text() +
+       "' onmouseover='bakgrunnarea(" + $(this).find("hyttenr").text() + ")' onmouseout='normalarea(" +
+       $(this).find("hyttenr").text() + ")' " +
+        "><td>Navn: " + $(this).find("navn").text() +
        "</td><td>Sted: " + $(this).find("omraade").text() +
        "</td></tr><tr><td class='radstil'>Type: " + $(this).find("type").text() +
        "</td><td>Antall sengeplasser: " + $(this).find("antall_sengeplasser").text() +

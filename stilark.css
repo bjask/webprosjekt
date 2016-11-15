@@ -1,5 +1,20 @@
   fieldset {
-    width: 300px;
+    width: 400px;
+  }
+  #husnummer {
+    width: 40px;
+  }
+  #postnr {
+    width: 40px;
+  }
+  #utløp {
+    width: 148px;
+  }
+  #tid {
+    width: 50px;
+  }
+  #kortinfo {
+    visibility: hidden;
   }
   circle { cursor: pointer;
   }

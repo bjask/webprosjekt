@@ -15,6 +15,8 @@
    <bilde>sjohytta.png</bilde>
    <beskrivelse>Hytte i flotte omgivelser ytterst i
      Trondheimsfjorden. Hytta har eget naust med b&#229;t.</beskrivelse>
+   <timepris>150</timepris>
+   <dognpris>995</dognpris>
   </hytte>
 
 <hytte hytteid="2">
@@ -32,6 +34,8 @@
   <bilde>fjellhytta.png</bilde>
   <beskrivelse>Hytte i fantastisk fjellomr&#229;de i Mer&#229;ker
     kommune. Kort veg til fiskevann med &#248;rret.</beskrivelse>
+  <timepris>120</timepris>
+  <dognpris>900</dognpris>
 </hytte>
 
 </katalog>

@@ -50,10 +50,17 @@ function myMap() {
     zoom: 9
   };
   var map1 = new google.maps.Map(mapCanvas, mapOptions);
-  var marker1 = new google.maps.Marker({position:Havblikk});
-  marker1.setMap(map1);
-  var marker2 = new google.maps.Marker({position:Moserabben});
-  marker2.setMap(map1);
+  var marker = [new google.maps.Marker({position:Havblikk}), new google.maps.Marker({position:Moserabben})];
+  var i=0;
+  var tekst;
+  marker[0].setMap(map1);
+  marker[1].setMap(map1);
+  google.maps.event.addListener(marker[0],'click', function() {
+    VelgHytte(1);
+    });
+  google.maps.event.addListener(marker[1],'click', function() {
+    VelgHytte(2);
+    });
 }
 </script>
 

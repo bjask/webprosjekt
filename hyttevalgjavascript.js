@@ -1,5 +1,6 @@
-function VelgHytte(hyttenavn, hyttenr) {
+function VelgHytte(hyttenr) {
   var tekst='hytte[hytteid="';
+  var hyttenavn = tekst + hyttenr + '"] navn';
   var hytteomraade = tekst + hyttenr + '"] omraade'; //Lager variabler for å lette jquery-setningene lenger ned
   var hyttetype = tekst + hyttenr + '"] type';
   var hytteantall_sengeplasser = tekst + hyttenr + '"] antall_sengeplasser';
@@ -22,7 +23,7 @@ function VelgHytte(hyttenavn, hyttenr) {
     dataType: "xml",
     success: function(xml) {
 
-      txt += '<p id="hytteliste">' + hyttenavn +'</p>';
+      txt += '<p id="hytteliste">' + $(xml).find(hyttenavn).text() +'</p>';
       txt += '<img src="' + $(xml).find(hyttebilde).text() + '" style="width:431px;heigth=260px;"/>';
       txt += "<table class='hoved'><tr><td>Omr&#229;de:</td><td>";   //Presenterer hytteinfoen i en tabell
       txt += $(xml).find(hytteomraade).text() + "</td></tr>";

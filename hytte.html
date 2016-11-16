@@ -24,6 +24,13 @@ function bakgrunnarea(nummer) {
 function normalarea(nummer) {
   $("#hytte" + nummer).css("border", "initial");
 }
+function etiketter(hyttenavn, hyttenr) {
+  var infowindow = new google.maps.InfoWindow({
+  content:hyttenavn
+  });
+
+
+}
 </script>
 </head>
 
@@ -51,16 +58,53 @@ function myMap() {
   };
   var map1 = new google.maps.Map(mapCanvas, mapOptions);
   var marker = [new google.maps.Marker({position:Havblikk}), new google.maps.Marker({position:Moserabben})];
+  var infowindow = null;
   var i=0;
   var tekst;
+  var tellelengde = marker.length;
   marker[0].setMap(map1);
   marker[1].setMap(map1);
   google.maps.event.addListener(marker[0],'click', function() {
+    if (infowindow) {
+      infowindow.close();
+    }
+    infowindow = new google.maps.InfoWindow({
+    content:"Havblikk"
+    });
+    infowindow.open(map1,marker[0]);
     VelgHytte(1);
-    });
+  });
   google.maps.event.addListener(marker[1],'click', function() {
+    if (infowindow) {
+      infowindow.close();
+    }
+    infowindow = new google.maps.InfoWindow({
+      content:"Moserabben"
+      });
+    infowindow.open(map1,marker[1]);
     VelgHytte(2);
-    });
+  });
+  google.maps.event.addListener(marker[0],'mouseover', function() {
+    bakgrunn(1);
+  });
+  google.maps.event.addListener(marker[0],'mouseout', function() {
+    normal(1);
+  });
+  google.maps.event.addListener(marker[1],'mouseover', function() {
+    bakgrunn(2);
+  });
+  google.maps.event.addListener(marker[1],'mouseout', function() {
+    normal(2);
+  });
+  $(".radstil1").hover(function(){
+    infowindow = new google.maps.InfoWindow({
+      content:"Havblikk"
+      });
+    infowindow.open(map1,marker[0]);
+    alert("Etter at etiketten skulle vært der");
+  },function(){
+    infowindow.close();
+  });
 }
 </script>
 

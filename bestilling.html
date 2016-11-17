@@ -5,6 +5,7 @@
     <link rel="StyleSheet" type="text/css" href="stilark.css" />
     <title>Bestill hytte</title>
     <script src="http://www.w3schools.com/lib/w3data.js"></script> <!-- script for å inkludere filer med html-tagger -->
+    <script src="hyttevalgjavascript.js"></script>
   </head>
   <body>
     <div w3-include-html="tittel.html" id="heading"></div>
@@ -13,6 +14,40 @@
        <!--Avsnittet inkluderer filer med html-innhold for tittel og meny -->
 
        <script type="text/javascript" language="javascript">
+       function Sum(hyttenr) {
+         var tekst='hytte[hytteid="';
+         var timepris = tekst + hyttenr + '"] timepris';
+         var dognpris = tekst + hyttenr + '"] dognpris';
+         var sum;
+         var tid = window.document.getElementById("bestilling").tid.value;
+         var bruksomrade = window.document.getElementById("bestilling").bruksomrade.value;
+
+         alert(timepris);
+         alert(dognpris);
+           $.ajax({          //Her hentes info om hyttene fra hytter.xml-fila.
+           type: "GET",
+           url: "hytter.xml",
+           dataType: "xml",
+           success: function(xml) {
+
+             timepris += $(xml).find(timepris).text();
+             dognpris += $(xml).find(dognpris).text();
+           }
+          });
+
+    alert(timepris);
+    alert(dognpris);
+          if (bruksomrade == "Dagstur") {
+            sum == (Number(timepris) * tid);
+            window.document.getElementById("sumHer").innerHTML = sum;
+          }
+          if (bruksomrade == "Overnatting") {
+            sum == (Number(dognpris) * tid);
+            window.document.getElementById("sumHer").innerHTML = sum;
+          }
+          }
+
+
          function sjekkSkjema() {
            var hytte = window.document.getElementById("bestilling").hytteNavn.value;
            var kjøperMobil = window.document.getElementById("bestilling").mobil.value;
@@ -80,7 +115,7 @@
        </script>
 <!--http://www.iie.hist.no/fag/webutvikling1/prosjekt/behandle.php-->
 <div align="center">
-  <form action="http://www.iie.hist.no/fag/webutvikling1/prosjekt/behandle.php" name="kristofferstrom@hotmail.com" id="bestilling" method="post" onsubmit="return sjekkSkjema();">
+  <form action="http://www.iie.hist.no/fag/webutvikling1/prosjekt/behandle.php" id="bestilling" method="post" onsubmit="return sjekkSkjema();">
     <fieldset>
       <legend>Hytte</legend>
       <table align="left">
@@ -88,22 +123,26 @@
           <td><label for="hytteNavn">Hyttenavn: </label></td>
           <td><select id="hytteNavn" required>
             <option>Navn</option>
-            <option>Sjøhytta</option>
-            <option>Fjellhytta</option>
-            <option>Skogshytta</option>
+            <option>Havblikk</option>
+            <option>Moserabben</option>
+            <option>Tussebo</option>
           </select>
         </tr>
         <tr>
           <td><label for="startDato">Start dato: </label></td>
           <td><input type="date" name="startDato" id="startDato" required></td>
           <td><label for="startTime">Tid: </label></td>
-          <td><input type="time" name="startTime" id="tid" required></td>
+          <td><input type="time" name="startTime" id="startTid" required></td>
         </tr>
         <tr>
-          <td><label for="sluttDato">Slutt dato: </label></td>
-          <td><input type="date" name="sluttDato" id="sluttDato" required></td>
-          <td><label for="tilTime">Tid: </label></td>
-          <td><input type="time" name="tilTime" id="tid" required></td>
+          <td><label for="bruk">Type bruk: </label></td>
+          <td><select id="bruk" name="bruksomrade" onchange="Sum(0)" required>
+            <option>Bruk</option>
+            <option>Dagsbesøk</option>
+            <option>Overnatting</option>
+          </select>
+          <td><label for="tid">Varighet: </label></td>
+          <td><input type="number" name="tid" id="tid" required></td>
         </tr>
       </table>
       <table align="left">
@@ -121,7 +160,7 @@
         </tr>
         <tr align="center">
           <td>Total pris:</td>
-          <td>pris her</td>
+          <td id="sumHer"></td>
         </tr>
       </table>
     </fieldset>
@@ -187,7 +226,7 @@
           <td><input type="month" name="utløp" id="utløp"></td>
       </table>
     </fieldset>
-      <table id="bastillingKnapper">
+      <table id="bestillingKnapper">
         <tr>
           <td><input type="submit" value="Bestill"></td>
           <td><input type="reset" value="Tøm skjema"></td>

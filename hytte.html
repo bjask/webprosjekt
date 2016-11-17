@@ -28,9 +28,11 @@ function etiketter(hyttenavn, hyttenr) {
   var infowindow = new google.maps.InfoWindow({
   content:hyttenavn
   });
-
-
 }
+
+
+
+
 </script>
 </head>
 
@@ -59,31 +61,30 @@ function myMap() {
   var map1 = new google.maps.Map(mapCanvas, mapOptions);
   var marker = [new google.maps.Marker({position:Havblikk}), new google.maps.Marker({position:Moserabben})];
   var infowindow = null;
-  var i=0;
+  var i=5;
   var tekst;
   var tellelengde = marker.length;
   marker[0].setMap(map1);
   marker[1].setMap(map1);
-  google.maps.event.addListener(marker[0],'click', function() {
+  function kartklikk(klikkpunkt) {
+    var infoboksinnhold = ["Havblikk", "Moserabben"];
+    alert(klikkpunkt + 1);
     if (infowindow) {
       infowindow.close();
     }
     infowindow = new google.maps.InfoWindow({
-    content:"Havblikk"
-    });
-    infowindow.open(map1,marker[0]);
-    VelgHytte(1);
+      content: infoboksinnhold[klikkpunkt]
+      });
+    infowindow.open(map1,marker[klikkpunkt]);
+    VelgHytte(klikkpunkt + 1);
+  }
+  google.maps.event.addListener(marker[0],'click', function() {
+    kartklikk(0);
   });
   google.maps.event.addListener(marker[1],'click', function() {
-    if (infowindow) {
-      infowindow.close();
-    }
-    infowindow = new google.maps.InfoWindow({
-      content:"Moserabben"
-      });
-    infowindow.open(map1,marker[1]);
-    VelgHytte(2);
+    kartklikk(1);
   });
+
   google.maps.event.addListener(marker[0],'mouseover', function() {
     bakgrunn(1);
   });

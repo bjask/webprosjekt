@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 <katalog>
  <hytte hytteid="1">
    <hyttenr>1</hyttenr>
    <navn>Havblikk</navn>
    <omraade>Agdenes</omraade>
-   <vaer>S%c3%b8r-Tr%c3%b8ndelag/Agdenes/Selven~215704</vaer>
-   <type>Sj&#248;hytte</type>
+   <vaer>Sør-Trøndelag/Agdenes/Selven~215704</vaer>
+   <type>Sjøhytte</type>
    <antall_sengeplasser>4</antall_sengeplasser>
    <vann>Innlagt</vann>
    <toalett>Vannklosett</toalett>
    <dusj>Ja</dusj>
    <tv>Ja</tv>
-   <internett>tr&#229;dl&#248;st</internett>
+   <internett>Trådløst</internett>
    <bilde>sjohytta.png</bilde>
    <beskrivelse>Hytte i flotte omgivelser ytterst i
-     Trondheimsfjorden. Hytta har eget naust med b&#229;t.</beskrivelse>
+     Trondheimsfjorden. Hytta har eget naust med båt.</beskrivelse>
    <timepris>150</timepris>
    <dognpris>995</dognpris>
   </hytte>
@@ -22,8 +22,8 @@
 <hytte hytteid="2">
   <hyttenr>2</hyttenr>
   <navn>Moserabben</navn>
-  <omraade>Mer&#229;ker/Stj&#248;rdal</omraade>
-  <vaer>Nord-Tr%c3%b8ndelag/Stj%c3%b8rdal/Flornes</vaer>
+  <omraade>Meråker/Stjørdal</omraade>
+  <vaer>Nord-Trøndelag/Stjørdal/Flornes</vaer>
   <type>Fjellhytte</type>
   <antall_sengeplasser>6</antall_sengeplasser>
   <vann>Ikke innlagt</vann>
@@ -32,8 +32,8 @@
   <tv>Nei</tv>
   <internett>Nei</internett>
   <bilde>fjellhytta.png</bilde>
-  <beskrivelse>Hytte i fantastisk fjellomr&#229;de i Mer&#229;ker
-    kommune. Kort veg til fiskevann med &#248;rret.</beskrivelse>
+  <beskrivelse>Hytte i fantastisk fjellområde i Meråker
+    kommune. Kort veg til fiskevann med ørret.</beskrivelse>
   <timepris>120</timepris>
   <dognpris>900</dognpris>
 </hytte>
@@ -42,18 +42,18 @@
   <hyttenr>3</hyttenr>
   <navn>Tussebo</navn>
   <omraade>Korsvegen</omraade>
-  <vaer>S&#248;r-Tr&#248;ndelag/Melhus/Korsvegen</vaer>
+  <vaer>Sør-Trøndelag/Melhus/Korsvegen</vaer>
   <type>Skoghytte</type>
   <antall_sengeplasser>7</antall_sengeplasser>
-  <vann>Kran p&#229; vegg</vann>
+  <vann>Kran på vegg</vann>
   <toalett>Biotoalett</toalett>
   <dusj>Nei</dusj>
   <tv>Nei</tv>
   <internett>Nei</internett>
   <bilde>tussebo.png</bilde>
   <beskrivelse>Hytte i majestetisk skogsterreng i Melhus
-    kommune. Fin triml&#248;ype like ved, og oppkj&#248;rte skispor.
-    Kort veg til fiskevann med &#248;rret.</beskrivelse>
+    kommune. Fin trimløype like ved, og oppkjørte skispor.
+    Kort veg til fiskevann med ørret.</beskrivelse>
   <timepris>170</timepris>
   <dognpris>1990</dognpris>
 </hytte>

@@ -30,9 +30,7 @@ function etiketter(hyttenavn, hyttenr) {
   });
 }
 
-function testefunksjon() {
-  alert("Testefunksjonen fungerer");
-}
+
 
 
 </script>
@@ -72,7 +70,6 @@ function myMap() {
   }
   function kartklikk(klikkpunkt) {
     var infoboksinnhold = ["Havblikk", "Moserabben", "Tussebo"];
-    alert(klikkpunkt + 1);
     if (infowindow) {
       infowindow.close();
     }
@@ -130,7 +127,7 @@ $(document).ready(function(){
    success: function(xml) {
      $(xml).find("hytte").each(function(){
        txt += "<table class='hoved'>";
-       txt += "<tr class='radstil" + $(this).find("hyttenr").text() + "' onclick='testefunksjon()'><td>Navn: " + $(this).find("navn").text() +
+       txt += "<tr class='radstil" + $(this).find("hyttenr").text() + "' ><td>Navn: " + $(this).find("navn").text() +
        "</td><td>Sted: " + $(this).find("omraade").text() +
        "</td></tr><tr><td class='radstil'>Type: " + $(this).find("type").text() +
        "</td><td>Antall sengeplasser: " + $(this).find("antall_sengeplasser").text() +

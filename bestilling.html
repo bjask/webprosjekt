@@ -6,6 +6,8 @@
     <title>Bestill hytte</title>
     <script src="http://www.w3schools.com/lib/w3data.js"></script> <!-- script for å inkludere filer med html-tagger -->
     <script src="hyttevalgjavascript.js"></script>
+    <script src="jquery-3.1.1.js"></script>
+
   </head>
   <body>
     <div w3-include-html="tittel.html" id="heading"></div>
@@ -18,31 +20,28 @@
          var tekst='hytte[hytteid="';
          var timepris = tekst + hyttenr + '"] timepris';
          var dognpris = tekst + hyttenr + '"] dognpris';
-         var sum;
+         var sum=0;
          var tid = window.document.getElementById("bestilling").tid.value;
          var bruksomrade = window.document.getElementById("bestilling").bruksomrade.value;
 
-         alert(timepris);
-         alert(dognpris);
+//         alert(tid);
+//         alert(bruksomrade);
            $.ajax({          //Her hentes info om hyttene fra hytter.xml-fila.
            type: "GET",
            url: "hytter.xml",
            dataType: "xml",
            success: function(xml) {
 
-             timepris += $(xml).find(timepris).text();
-             dognpris += $(xml).find(dognpris).text();
+             timepris = $(xml).find(timepris).text();
+             dognpris = $(xml).find(dognpris).text();
            }
           });
-
-    alert(timepris);
-    alert(dognpris);
-          if (bruksomrade == "Dagstur") {
-            sum == (Number(timepris) * tid);
+      if (bruksomrade == "Dagstur") {
+            sum = (Number(timepris) * tid);
             window.document.getElementById("sumHer").innerHTML = sum;
           }
           if (bruksomrade == "Overnatting") {
-            sum == (Number(dognpris) * tid);
+            sum = (Number(dognpris) * tid);
             window.document.getElementById("sumHer").innerHTML = sum;
           }
           }
@@ -136,13 +135,13 @@
         </tr>
         <tr>
           <td><label for="bruk">Type bruk: </label></td>
-          <td><select id="bruk" name="bruksomrade" onchange="Sum(0)" required>
+          <td><select id="bruk" name="bruksomrade" onchange="Sum(1)" required>
             <option>Bruk</option>
-            <option>Dagsbesøk</option>
+            <option>Dagstur</option>
             <option>Overnatting</option>
           </select>
           <td><label for="tid">Varighet: </label></td>
-          <td><input type="number" name="tid" id="tid" required></td>
+          <td><input type="number" name="tid" id="tid" value="0" onchange="Sum(1)" required></td>
         </tr>
       </table>
       <table align="left">

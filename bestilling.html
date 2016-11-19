@@ -16,16 +16,36 @@
        <!--Avsnittet inkluderer filer med html-innhold for tittel og meny -->
 
        <script type="text/javascript" language="javascript">
-       function Sum(hyttenr) {
+       function Sum() {
          var tekst='hytte[hytteid="';
-         var timepris = tekst + hyttenr + '"] timepris';
-         var dognpris = tekst + hyttenr + '"] dognpris';
+         var timepris ="";
+         var dognpris ="";
          var sum=0;
          var tid = window.document.getElementById("bestilling").tid.value;
          var bruksomrade = window.document.getElementById("bestilling").bruksomrade.value;
+         var hytte = window.document.getElementById("bestilling").hytteNavn.value;
 
-//         alert(tid);
-//         alert(bruksomrade);
+         switch (hytte) {
+           case "Havblikk":
+            hyttenr="1";
+           break;
+           case "Moserabben":
+            hyttenr="2";
+            break;
+           case "Tussebo":
+            hyttenr="3";
+           break;
+           default:
+            hyttenr="x";
+         }
+
+         if (hyttenr != "x") {
+
+
+
+         timepris = tekst + hyttenr + '"] timepris';
+         dognpris = tekst + hyttenr + '"] dognpris';
+
            $.ajax({          //Her hentes info om hyttene fra hytter.xml-fila.
            type: "GET",
            url: "hytter.xml",
@@ -36,14 +56,16 @@
              dognpris = $(xml).find(dognpris).text();
            }
           });
+    setTimeout(function(){
       if (bruksomrade == "Dagstur") {
-            sum = (Number(timepris) * tid);
-            window.document.getElementById("sumHer").innerHTML = sum;
-          }
-          if (bruksomrade == "Overnatting") {
-            sum = (Number(dognpris) * tid);
-            window.document.getElementById("sumHer").innerHTML = sum;
-          }
+            sum = Number(timepris) * Number(tid);
+            }
+      if (bruksomrade == "Overnatting") {
+            sum = Number(dognpris) * Number(tid);
+            }
+      window.document.getElementById("sumHer").innerHTML = "Totalprisen ble:  Kr " + sum + ",-";
+    }, 300);
+        }
           }
 
 
@@ -135,13 +157,13 @@
         </tr>
         <tr>
           <td><label for="bruk">Type bruk: </label></td>
-          <td><select id="bruk" name="bruksomrade" onchange="Sum(1)" required>
+          <td><select id="bruk" name="bruksomrade" required>
             <option>Bruk</option>
             <option>Dagstur</option>
             <option>Overnatting</option>
           </select>
           <td><label for="tid">Varighet: </label></td>
-          <td><input type="number" name="tid" id="tid" value="0" onchange="Sum(1)" required></td>
+          <td><input type="number" name="tid" id="tid" value="0" required></td>
         </tr>
       </table>
       <table align="left">
@@ -158,7 +180,7 @@
           <td>Ja<input type="radio" name="vask" id="ønskerVask" value="1" checked="true"/>Nei<input type="radio" name="vask" id="ønskerIkkeVask" value="0"/></td>
         </tr>
         <tr align="center">
-          <td>Total pris:</td>
+          <td><input type="button" value="Sjekk prisen" onclick="Sum()" ></td>
           <td id="sumHer"></td>
         </tr>
       </table>

@@ -9,6 +9,8 @@ function VelgHytte(hyttenr) {
   var hyttedusj = tekst + hyttenr + '"] dusj';
   var hyttetv = tekst + hyttenr + '"] tv';
   var hytteinternett = tekst + hyttenr + '"] internett';
+  var hyttetimepris = tekst + hyttenr + '"] timepris';
+  var hyttedognpris = tekst + hyttenr + '"] dognpris';
   var hyttebeskrivelse = tekst + hyttenr + '"] beskrivelse';
   var hyttevaer = tekst + hyttenr + '"] vaer';
   var hyttebilde = tekst + hyttenr + '"] bilde';
@@ -41,6 +43,10 @@ function VelgHytte(hyttenr) {
       txt += $(xml).find(hyttetv).text() + "</td></tr>";
       txt += "<tr><td>Internett:</td><td>";
       txt += $(xml).find(hytteinternett).text() + "</td></tr>";
+      txt += "<tr><td>Leiepris per time:</td><td>";
+      txt += $(xml).find(hyttetimepris).text() + "</td></tr>";
+      txt += "<tr><td>Leiepris per døgn:</td><td>";
+      txt += $(xml).find(hyttedognpris).text() + "</td></tr>";
       txt += "<tr><td>Beskrivelse:</td><td colspan='2'>";
       txt += $(xml).find(hyttebeskrivelse).text() + "</td></tr>";
       txt += "</table>";

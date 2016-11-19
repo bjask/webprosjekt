@@ -30,7 +30,9 @@ function etiketter(hyttenavn, hyttenr) {
   });
 }
 
-
+function testefunksjon() {
+  alert("Testefunksjonen fungerer");
+}
 
 
 </script>
@@ -45,7 +47,7 @@ function etiketter(hyttenavn, hyttenr) {
     <area id="hytte1" style="color:blue" shape="circle" coords="137,59,20" alt="Sj&#248;hytta" onmouseover="bakgrunn(1)" onmouseout="normal(1)" onclick="VelgHytte('Sj&#248;hytta', '1'); return false;" href="#tull" />
     <area id="hytte2" shape="circle" coords="1035,327,20" alt="Fjellhytta"  onmouseover="bakgrunn(2)" onmouseout="normal(2)" onclick="VelgHytte('Fjellhytta', '2'); return false;" href="#tull" />
   </map> -->
-
+<input type="hidden" id="mellomlager" value="M" />
   <div id="map" ></div>
 
 <script>
@@ -54,28 +56,31 @@ function myMap() {
   var myCenter = new google.maps.LatLng(63.428857, 10.390009);
   var Moserabben = new google.maps.LatLng(63.397818, 11.422038);
   var Havblikk = new google.maps.LatLng(63.623229, 9.731516);
+  var Tussebo = new google.maps.LatLng(63.175268, 10.079515);
   var mapOptions = {
     center: myCenter,
     zoom: 9
   };
   var map1 = new google.maps.Map(mapCanvas, mapOptions);
-  var marker = [new google.maps.Marker({position:Havblikk}), new google.maps.Marker({position:Moserabben})];
+  var marker = [new google.maps.Marker({position:Havblikk}), new google.maps.Marker({position:Moserabben}), new google.maps.Marker({position:Tussebo})];
   var infowindow = null;
   var i=5;
   var tekst;
   var tellelengde = marker.length;
-  marker[0].setMap(map1);
-  marker[1].setMap(map1);
+  for (i=0;i<marker.length;i++){
+    marker[i].setMap(map1);
+  }
   function kartklikk(klikkpunkt) {
-    var infoboksinnhold = ["Havblikk", "Moserabben"];
+    var infoboksinnhold = ["Havblikk", "Moserabben", "Tussebo"];
     alert(klikkpunkt + 1);
     if (infowindow) {
       infowindow.close();
     }
+
     infowindow = new google.maps.InfoWindow({
       content: infoboksinnhold[klikkpunkt]
       });
-    infowindow.open(map1,marker[klikkpunkt]);
+  infowindow.open(map1,marker[klikkpunkt]);
     VelgHytte(klikkpunkt + 1);
   }
   google.maps.event.addListener(marker[0],'click', function() {
@@ -84,7 +89,9 @@ function myMap() {
   google.maps.event.addListener(marker[1],'click', function() {
     kartklikk(1);
   });
-
+  google.maps.event.addListener(marker[2],'click', function() {
+    kartklikk(2);
+  });
   google.maps.event.addListener(marker[0],'mouseover', function() {
     bakgrunn(1);
   });
@@ -97,14 +104,11 @@ function myMap() {
   google.maps.event.addListener(marker[1],'mouseout', function() {
     normal(2);
   });
-  $(".radstil1").hover(function(){
-    infowindow = new google.maps.InfoWindow({
-      content:"Havblikk"
-      });
-    infowindow.open(map1,marker[0]);
-    alert("Etter at etiketten skulle vært der");
-  },function(){
-    infowindow.close();
+  google.maps.event.addListener(marker[2],'mouseover', function() {
+    bakgrunn(3);
+  });
+  google.maps.event.addListener(marker[2],'mouseout', function() {
+    normal(3);
   });
 }
 </script>
@@ -126,7 +130,7 @@ $(document).ready(function(){
    success: function(xml) {
      $(xml).find("hytte").each(function(){
        txt += "<table class='hoved'>";
-       txt += "<tr class='radstil" + $(this).find("hyttenr").text() + "'><td>Navn: " + $(this).find("navn").text() +
+       txt += "<tr class='radstil" + $(this).find("hyttenr").text() + "' onclick='testefunksjon()'><td>Navn: " + $(this).find("navn").text() +
        "</td><td>Sted: " + $(this).find("omraade").text() +
        "</td></tr><tr><td class='radstil'>Type: " + $(this).find("type").text() +
        "</td><td>Antall sengeplasser: " + $(this).find("antall_sengeplasser").text() +

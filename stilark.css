@@ -13,6 +13,9 @@
   #tid {
     width: 50px;
   }
+  #ellomlager {
+    display: none;
+  }
   #kortinfo {
     visibility: hidden;
   }

@@ -13,8 +13,8 @@
   #tid {
     width: 50px;
   }
-  #ellomlager {
-    display: none;
+  #hoyre {
+    text-align: right;
   }
   #kortinfo {
     visibility: hidden;

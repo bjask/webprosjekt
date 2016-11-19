@@ -24,6 +24,8 @@
          var tid = window.document.getElementById("bestilling").tid.value;
          var bruksomrade = window.document.getElementById("bestilling").bruksomrade.value;
          var hytte = window.document.getElementById("bestilling").hytteNavn.value;
+         var vask = window.document.getElementById("bestilling").onskerVask.checked;
+         var medlem = window.document.getElementById("bestilling").erMedlem.checked;
 
          switch (hytte) {
            case "Havblikk":
@@ -38,10 +40,11 @@
            default:
             hyttenr="x";
          }
-
+         if (bruksomrade=="Dagstur" & Number(tid)>8) {
+           alert("Du kan ikke leie hytta mer enn 8 timer på en dag. Velg heller leie én dag.")
+         }
+         else {
          if (hyttenr != "x") {
-
-
 
          timepris = tekst + hyttenr + '"] timepris';
          dognpris = tekst + hyttenr + '"] dognpris';
@@ -63,10 +66,18 @@
       if (bruksomrade == "Overnatting") {
             sum = Number(dognpris) * Number(tid);
             }
+      if (vask) {
+        sum = sum + 300;
+      }
+      if (medlem) {
+        sum = Math.round(sum * 0.85);
+      }
+
       window.document.getElementById("sumHer").innerHTML = "Totalprisen ble:  Kr " + sum + ",-";
     }, 300);
         }
-          }
+      }
+  }
 
 
          function sjekkSkjema() {
@@ -152,7 +163,7 @@
         <tr>
           <td><label for="startDato">Start dato: </label></td>
           <td><input type="date" name="startDato" id="startDato" required></td>
-          <td><label for="startTime">Tid: </label></td>
+          <td id="hoyre"><label for="startTime">Kl: </label></td>
           <td><input type="time" name="startTime" id="startTid" required></td>
         </tr>
         <tr>
@@ -162,7 +173,7 @@
             <option>Dagstur</option>
             <option>Overnatting</option>
           </select>
-          <td><label for="tid">Varighet: </label></td>
+          <td><label for="tid">Døgn/timer: </label></td>
           <td><input type="number" name="tid" id="tid" value="0" required></td>
         </tr>
       </table>
@@ -177,7 +188,7 @@
           <td><label for="vask">Ønsker du betalt vask? (300kr)</label></td>
         </tr>
         <tr>
-          <td>Ja<input type="radio" name="vask" id="ønskerVask" value="1" checked="true"/>Nei<input type="radio" name="vask" id="ønskerIkkeVask" value="0"/></td>
+          <td>Ja<input type="radio" name="vask" id="onskerVask" value="1" checked="true"/>Nei<input type="radio" name="vask" id="onskerIkkeVask" value="0"/></td>
         </tr>
         <tr align="center">
           <td><input type="button" value="Sjekk prisen" onclick="Sum()" ></td>

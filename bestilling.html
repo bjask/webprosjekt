@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <link rel="StyleSheet" type="text/css" href="stilark.css" />
+    <link rel="StyleSheet" type="text/css" href="stilark.css" /><!--CSS-stilark-->
     <title>Bestill hytte</title>
     <script src="http://www.w3schools.com/lib/w3data.js"></script> <!-- script for å inkludere filer med html-tagger -->
-    <script src="hyttevalgjavascript.js"></script>
-    <script src="jquery-3.1.1.js"></script>
+    <script src="hyttevalgjavascript.js"></script>                 <!-- script for å inkludere javascriptfil -->
+    <script src="jquery-3.1.1.js"></script>                       <!-- script for å inkludere jQuerybiblioteket -->
 
   </head>
   <body>
@@ -16,7 +16,7 @@
        <!--Avsnittet inkluderer filer med html-innhold for tittel og meny -->
 
        <script type="text/javascript" language="javascript">
-       function Sum() {
+       function Sum() {                                       //Regner ut prisen
          var tekst='hytte[hytteid="';
          var timepris ="";
          var dognpris ="";
@@ -40,8 +40,13 @@
            default:
             hyttenr="x";
          }
+         if (hyttenr=="x"||bruksomrade=="Bruk") {
+           alert("Du må velge både hytte og type bruk før du kan regne ut en pris.");
+         }
+           else {
+
          if (bruksomrade=="Dagstur" & Number(tid)>8) {
-           alert("Du kan ikke leie hytta mer enn 8 timer på en dag. Velg heller leie én dag.")
+           alert("Du kan ikke leie hytta mer enn 8 timer på en dag. Velg heller leie én dag.");
          }
          else {
          if (hyttenr != "x") {
@@ -59,7 +64,7 @@
              dognpris = $(xml).find(dognpris).text();
            }
           });
-    setTimeout(function(){
+    setTimeout(function(){                      //Legger inn tidsforsinkelse for at ajaxkommandoene skal rekke å bli fullført.
       if (bruksomrade == "Dagstur") {
             sum = Number(timepris) * Number(tid);
             }
@@ -73,14 +78,16 @@
         sum = Math.round(sum * 0.85);
       }
 
-      window.document.getElementById("sumHer").innerHTML = "Totalprisen ble:  Kr " + sum + ",-";
+      window.document.getElementById("sumHer").value = "Kr " + sum + ",-";     //Skriver prisen til det skjulte tekstfeltet.
     }, 300);
         }
       }
+    }
   }
 
 
-         function sjekkSkjema() {
+
+         function sjekkSkjema() {  //Sjekker om alt er korrekt utfylt
            var hytte = window.document.getElementById("bestilling").hytteNavn.value;
            var kjøperMobil = window.document.getElementById("bestilling").mobil.value;
            var kjøperBetalingstype = window.document.getElementById("bestilling").betalingstype.value;
@@ -103,12 +110,14 @@
            }
            if (kjøperBetalingstype == "Faktura") {
              alert("Faktura sendes i posten");
+             window.document.getElementById("sumHer").disabled = false; //Må aktivere det inaktive prisfeltet for at det skal bli med i sendingen.
              return true;
            }
+           window.document.getElementById("sumHer").disabled = false;
            return true;
          }
 
-         function betalingskort() {
+         function betalingskort() {   //Skjuler eller viser betalingskortinfo
            var kortnr = window.document.getElementById("bestilling").kortnummer.value;
            var kortEier = window.document.getElementById("bestilling").korteier.value;
            var kortCVC = window.document.getElementById("bestilling").cvc.value;
@@ -192,7 +201,7 @@
         </tr>
         <tr align="center">
           <td><input type="button" value="Sjekk prisen" onclick="Sum()" ></td>
-          <td id="sumHer"></td>
+          <td>Prisen ble:<input name="Pris"  id="sumHer"  type="text" value="0,-" disabled /></td> <!-- Viser prisen i et inaktivt tekstfelt for at innholdet skal vises i bestillingseposten -->
         </tr>
       </table>
     </fieldset>
@@ -229,7 +238,7 @@
         </tr>
         <tr>
           <td><label for="betalingstype">Betalingstype: </label></td>
-          <td><select id="betalingstype" required onchange="betalingskort()">
+          <td><select id="betalingstype" required onchange="betalingskort()">   <!-- Skjuler eller viser betalingskortinfo. -->
             <option>Betalingstype</option>
             <option>VISA</option>
             <option>MasterCard</option>

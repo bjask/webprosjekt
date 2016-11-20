@@ -4,6 +4,13 @@
   #husnummer {
     width: 40px;
   }
+  #fremside {
+    margin-top: 50px;
+  }
+  #reklame {
+    margin-top: 100px;
+    font-family: "Verdana";
+  }
   #postnr {
     width: 40px;
   }
@@ -82,4 +89,10 @@
    h1 {
      font-family: "Comic Sans MS";
      font-size: 4em;
+     margin-bottom: 0px;
+     margin-top: 0px;
+   }
+   h2 {
+     font-family: "Comic Sans MS";
+     margin-top: 0px;
    }

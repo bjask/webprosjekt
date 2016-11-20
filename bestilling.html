@@ -194,12 +194,14 @@
           <td>Ja<input type="radio" name="medlem" id="erMedlem" value="1"/>Nei<input type="radio" name="medlem" id="erIkkeMedlem" value="0" checked="true"/></td>
         </tr>
         <tr>
-          <td><label for="vask">Ønsker du betalt vask? (300kr)</label></td>
+          <td><label for="vask">Vil du kjøpe ettervask? (300kr)</label></td>
         </tr>
         <tr>
           <td>Ja<input type="radio" name="vask" id="onskerVask" value="1" checked="true"/>Nei<input type="radio" name="vask" id="onskerIkkeVask" value="0"/></td>
         </tr>
-        <tr align="center">
+      </table>
+      <table align="center">
+        <tr>
           <td><input type="button" value="Sjekk prisen" onclick="Sum()" ></td>
           <td>Prisen ble:<input name="Pris"  id="sumHer"  type="text" value="0,-" disabled /></td> <!-- Viser prisen i et inaktivt tekstfelt for at innholdet skal vises i bestillingseposten -->
         </tr>

@@ -62,7 +62,7 @@ function myMap() {
   var map1 = new google.maps.Map(mapCanvas, mapOptions);
   var marker = [new google.maps.Marker({position:Havblikk}), new google.maps.Marker({position:Moserabben}), new google.maps.Marker({position:Tussebo})];
   var infowindow = null;
-  var i=5;
+  //var i=5;
   var tekst;
   var tellelengde = marker.length;
   for (i=0;i<marker.length;i++){
@@ -80,33 +80,22 @@ function myMap() {
   infowindow.open(map1,marker[klikkpunkt]);
     VelgHytte(klikkpunkt + 1);
   }
-  google.maps.event.addListener(marker[0],'click', function() {
-    kartklikk(0);
+
+  for (var i = 0; i < marker.length;i++) {
+    (function(i){
+      var punkt = marker[i];
+  google.maps.event.addListener(marker[i],'click', function() {
+    kartklikk(i);
   });
-  google.maps.event.addListener(marker[1],'click', function() {
-    kartklikk(1);
+  google.maps.event.addListener(marker[i],'mouseover', function() {
+    bakgrunn(i+1);
   });
-  google.maps.event.addListener(marker[2],'click', function() {
-    kartklikk(2);
+  google.maps.event.addListener(marker[i],'mouseout', function() {
+    normal(i+1);
   });
-  google.maps.event.addListener(marker[0],'mouseover', function() {
-    bakgrunn(1);
-  });
-  google.maps.event.addListener(marker[0],'mouseout', function() {
-    normal(1);
-  });
-  google.maps.event.addListener(marker[1],'mouseover', function() {
-    bakgrunn(2);
-  });
-  google.maps.event.addListener(marker[1],'mouseout', function() {
-    normal(2);
-  });
-  google.maps.event.addListener(marker[2],'mouseover', function() {
-    bakgrunn(3);
-  });
-  google.maps.event.addListener(marker[2],'mouseout', function() {
-    normal(3);
-  });
+}(i));
+}
+
 }
 </script>
 

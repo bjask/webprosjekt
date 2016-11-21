@@ -4,6 +4,10 @@
   #husnummer {
     width: 40px;
   }
+  #bestillingsskjema {
+    font-family: "verdana";
+    font-size: 0.8em;
+  }
   #fremside {
     margin-top: 50px;
   }

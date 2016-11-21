@@ -1,6 +1,14 @@
   fieldset {
     width: 400px;
   }
+  #kontakt {
+    width: 300px;
+  }
+  #kontaktinfo {
+    margin-top: 50px;
+    font-family: "Verdana";
+    font-size: 0.8em;
+  }
   #husnummer {
     width: 40px;
   }
@@ -12,7 +20,7 @@
     margin-top: 50px;
   }
   #reklame {
-    margin-top: 100px;
+    margin-top: 50px;
     font-family: "Verdana";
   }
   #postnr {

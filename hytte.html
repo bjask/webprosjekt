@@ -1,11 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="no">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="no">
 
 <head>
   <meta charset="utf-8"/>
-  <link rel="StyleSheet" type="text/css" href="stilark.css" />
-
+  <meta name="hytteutleie" content="Her kan du leie hytte!" />
+  <meta name="keywords" content="hytteutleie, norsk, natur, hytte, ferie, fritid" />
+  <link rel="stylesheet" type="text/css" href="stilark.css" />
   <title>Hytteparadiset</title>
   <script src="jquery-3.1.1.js"></script>
   <script src="http://www.w3schools.com/lib/w3data.js"></script> <!-- script for å inkludere filer med html-tagger -->
@@ -38,15 +39,9 @@ function etiketter(hyttenavn, hyttenr) {
 
 <body>
   <div w3-include-html="tittel.html" id="heading"></div>
-  <div w3-include-html="meny.html" id="meny"></div>
   <script>w3IncludeHTML();</script>  <!--Avsnittet inkluderer filer med html-innhold for tittel og meny -->
-  <!--<img id="storkart" src="storkart1.png" usemap="#klikkekart" alt="områdekart" style="width:1082px;height:641px;" />
-  <map name="klikkekart">
-    <area id="hytte1" style="color:blue" shape="circle" coords="137,59,20" alt="Sj&#248;hytta" onmouseover="bakgrunn(1)" onmouseout="normal(1)" onclick="VelgHytte('Sj&#248;hytta', '1'); return false;" href="#tull" />
-    <area id="hytte2" shape="circle" coords="1035,327,20" alt="Fjellhytta"  onmouseover="bakgrunn(2)" onmouseout="normal(2)" onclick="VelgHytte('Fjellhytta', '2'); return false;" href="#tull" />
-  </map> -->
-<input type="hidden" id="mellomlager" value="M" />
-  <div id="map" ></div>
+
+<div id="map" ></div>
 
 <script>
 function myMap() {
@@ -62,7 +57,6 @@ function myMap() {
   var map1 = new google.maps.Map(mapCanvas, mapOptions);
   var marker = [new google.maps.Marker({position:Havblikk}), new google.maps.Marker({position:Moserabben}), new google.maps.Marker({position:Tussebo})];
   var infowindow = null;
-  //var i=5;
   var tekst;
   var tellelengde = marker.length;
   for (i=0;i<marker.length;i++){

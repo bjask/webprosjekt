@@ -1,25 +1,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="no">
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
 <head>
-  <title>Hytteparadiset</title>
-  <meta charset="utf-8"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta name="hytteutleie" content="Her kan du leie hytte!" />
   <meta name="keywords" content="hytteutleie, norsk, natur, hytte, ferie, fritid" />
   <link rel="stylesheet" type="text/css" href="stilark.css" />
-  <script src="http://www.w3schools.com/lib/w3data.js"></script> <!-- script for å inkludere filer med html-tagger -->
+  <title>Hytteparadiset</title>
+  <script type="text/javascript" src="jquery-3.1.1.js"></script> <!-- script for å inkludere jQuerybiblioteket -->
+  <script type="text/javascript" src="http://www.w3schools.com/lib/w3data.js"></script> <!-- script for å inkludere filer med html-tagger -->
 </head>
 
 <body>
   <div w3-include-html="tittel.html" id="heading"></div>
-  <script>w3IncludeHTML();</script>
+  <script type="text/javascript">w3IncludeHTML();</script>
     <!--Avsnittet inkluderer filer med html-innhold for tittel og meny -->
 
 <div id="fremside" align="center">
 <h1>Nettstedkart</h1>
-<img id="fjell" src="nettstedkart.png" usemap="#klikkebilde" style="width:900px;height:550px" />
-<map name="klikkebilde">
+<img id="fjell" alt="Fjellbilde" src="nettstedkart.png" usemap="#klikkebilde" style="width:900px;height:550px" />
+<map name="klikkebilde" id="imagemap">
   <area shape="rect" coords="30,10,880,250" alt="Forside" href="index.html" />
   <area shape="rect" coords="20,320,270,530" alt="Hytteside" href="hytte.html" />
   <area shape="rect" coords="330,320,570,530" alt="Bestillingsside" href="bestilling.html" />
@@ -28,14 +29,14 @@
 </div>
 
 
-<div id="kontaktinfo" align="center">
+<div class="kontaktinfo" align="center">
 <table>
-  <th id="kontakt">Hytteparadiset AS</th>
-  <th id="kontakt">Org Nr: 010203045</th>
-  <th id="kontakt">Adresse: Hytteveien 5, 7020 TRONDHEIM</th>
-  <th id="kontakt">Tlf: 99887766</th>
-  <th id="kontakt">E-post: hytte@hytteparadiset.no</th>
-  <th id="kontakt">Ansvarlig redaktør: Bjarne Skurdal</th>
+  <tr><th class="kontakt">Hytteparadiset AS</th>
+  <th class="kontakt">Org Nr: 010203045</th>
+  <th class="kontakt">Adresse: Hytteveien 5, 7020 TRONDHEIM</th>
+  <th class="kontakt">Tlf: 99887766</th>
+  <th class="kontakt">E-post: hytte@hytteparadiset.no</th>
+  <th class="kontakt">Ansvarlig redaktør: Bjarne Skurdal</th></tr>
 </table>
 </div>
 </body>

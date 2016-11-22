@@ -1,20 +1,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="no">
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="hytteutleie" content="Her kan du leie hytte!" />
-    <meta name="keywords" content="hytteutleie, norsk, natur, hytte, ferie, fritid" />
-    <link rel="stylesheet" type="text/css" href="stilark.css" />
-    <title>Bestill hytte</title>
-    <script src="http://www.w3schools.com/lib/w3data.js"></script> <!-- script for å inkludere filer med html-tagger -->
-    <script src="hyttevalgjavascript.js"></script>                 <!-- script for å inkludere javascriptfil -->
-    <script src="jquery-3.1.1.js"></script>                       <!-- script for å inkludere jQuerybiblioteket -->
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="hytteutleie" content="Her kan du leie hytte!" />
+  <meta name="keywords" content="hytteutleie, norsk, natur, hytte, ferie, fritid" />
+  <link rel="stylesheet" type="text/css" href="stilark.css" />
+  <title>Bestill hytte</title>
+  <script type="text/javascript" src="jquery-3.1.1.js"></script> <!-- script for å inkludere jQuerybiblioteket -->
+  <script type="text/javascript" src="http://www.w3schools.com/lib/w3data.js"></script> <!-- script for å inkludere filer med html-tagger -->
+
 
   </head>
   <body>
     <div w3-include-html="tittel.html" id="heading"></div>
-    <script>w3IncludeHTML();</script>
+    <script type="text/javascript" >w3IncludeHTML();</script>
        <!--Avsnittet inkluderer filer med html-innhold for tittel og meny -->
 
        <script type="text/javascript" language="javascript">
@@ -47,7 +48,7 @@
          }
            else {
 
-         if (bruksomrade=="Dagstur" & Number(tid)>8) {
+         if (bruksomrade=="Dagstur" && Number(tid)>8) {
            alert("Du kan ikke leie hytta mer enn 8 timer på en dag. Velg heller leie én dag.");
          }
          else {
@@ -128,35 +129,34 @@
 
            if (kjøperBetalingstype == "VISA") {
              window.document.getElementById("kortinfo").style.visibility = "visible";
-             window.document.getElementById("kortnummer").required = true;
-             window.document.getElementById("korteier").required = true;
-             window.document.getElementById("cvc").required = true;
-             window.document.getElementById("utløp").required = true;
+             window.document.getElementById("kortnummer").required = "required";
+             window.document.getElementById("korteier").required = "required";
+             window.document.getElementById("cvc").required = "required";
+             window.document.getElementById("utløp").required = "required";
            }
            if (kjøperBetalingstype == "MasterCard") {
              window.document.getElementById("kortinfo").style.visibility = "visible";
-             window.document.getElementById("kortnummer").required = true;
-             window.document.getElementById("korteier").required = true;
-             window.document.getElementById("cvc").required = true;
-             window.document.getElementById("utløp").required = true;
+             window.document.getElementById("kortnummer").required = "required";
+             window.document.getElementById("korteier").required = "required";
+             window.document.getElementById("cvc").required = "required";
+             window.document.getElementById("utløp").required = "required";
            }
            if (kjøperBetalingstype == "Faktura") {
              window.document.getElementById("kortinfo").style.visibility = "hidden";
-             window.document.getElementById("kortnummer").required = false;
-             window.document.getElementById("korteier").required = false;
-             window.document.getElementById("cvc").required = false;
-             window.document.getElementById("utløp").required = false;
+             window.document.getElementById("kortnummer").required = "false";
+             window.document.getElementById("korteier").required = "false";
+             window.document.getElementById("cvc").required = "false";
+             window.document.getElementById("utløp").required = "false";
            }
            if (kjøperBetalingstype == "Betalingstype") {
              window.document.getElementById("kortinfo").style.visibility = "hidden";
-             window.document.getElementById("kortnummer").required = false;
-             window.document.getElementById("korteier").required = false;
-             window.document.getElementById("cvc").required = false;
-             window.document.getElementById("utløp").required = false;
+             window.document.getElementById("kortnummer").required = "false";
+             window.document.getElementById("korteier").required = "false";
+             window.document.getElementById("cvc").required = "false";
+             window.document.getElementById("utløp").required = "false";
            }
          }
        </script>
-<!--http://www.iie.hist.no/fag/webutvikling1/prosjekt/behandle.php-->
 <div id="bestillingsskjema" align="center">
   <form action="http://www.iie.hist.no/fag/webutvikling1/prosjekt/behandle.php" id="bestilling" method="post" onsubmit="return sjekkSkjema();">
     <fieldset>
@@ -164,28 +164,28 @@
       <table align="left">
         <tr>
           <td><label for="hytteNavn">Hyttenavn: </label></td>
-          <td><select id="hytteNavn" required>
+          <td><select id="hytteNavn" required="required">
             <option>Navn</option>
             <option>Havblikk</option>
             <option>Moserabben</option>
             <option>Tussebo</option>
-          </select>
+          </select></td>
         </tr>
         <tr>
           <td><label for="startDato">Start dato: </label></td>
-          <td><input type="date" name="startDato" id="startDato" required></td>
-          <td id="hoyre"><label for="startTime">Kl: </label></td>
-          <td><input type="time" name="startTime" id="startTid" required></td>
+          <td><input type="date" name="startDato" id="startDato" required="required"/></td>
+          <td id="hoyre"><label for="startTid">Kl: </label></td>
+          <td><input type="time" name="startTime" id="startTid" required="required"/></td>
         </tr>
         <tr>
           <td><label for="bruk">Type bruk: </label></td>
-          <td><select id="bruk" name="bruksomrade" required>
+          <td><select id="bruk" name="bruksomrade" required="required">
             <option>Bruk</option>
             <option>Dagstur</option>
             <option>Overnatting</option>
-          </select>
+          </select></td>
           <td><label for="tid">Døgn/timer: </label></td>
-          <td><input type="number" name="tid" id="tid" value="0" required></td>
+          <td><input type="number" name="tid" id="tid" value="0" required="required"/></td>
         </tr>
       </table>
       <table align="left">
@@ -193,19 +193,19 @@
           <td><label for="erMedlem">Er du medlem av skiforeningen?</label></td>
         </tr>
         <tr>
-          <td>Ja<input type="radio" name="medlem" id="erMedlem" value="1"/>Nei<input type="radio" name="medlem" id="erIkkeMedlem" value="0" checked="true"/></td>
+          <td>Ja<input type="radio" name="medlem" id="erMedlem" value="1"/>Nei<input type="radio" name="medlem" id="erIkkeMedlem" value="0" checked="checked"/></td>
         </tr>
         <tr>
-          <td><label for="vask">Vil du kjøpe ettervask? (300kr)</label></td>
+          <td><label for="onskerVask">Vil du kjøpe ettervask? (300kr)</label></td>
         </tr>
         <tr>
-          <td>Ja<input type="radio" name="vask" id="onskerVask" value="1" checked="true"/>Nei<input type="radio" name="vask" id="onskerIkkeVask" value="0"/></td>
+          <td>Ja<input type="radio" name="vask" id="onskerVask" value="1" checked="checked"/>Nei<input type="radio" name="vask" id="onskerIkkeVask" value="0"/></td>
         </tr>
       </table>
       <table align="center">
         <tr>
-          <td><input type="button" value="Sjekk prisen" onclick="Sum()" ></td>
-          <td>Prisen ble:<input name="Pris"  id="sumHer"  type="text" value="0,-" disabled /></td> <!-- Viser prisen i et inaktivt tekstfelt for at innholdet skal vises i bestillingseposten -->
+          <td><input type="button" value="Sjekk prisen" onclick="Sum()" /></td>
+          <td>Prisen ble:<input name="Pris"  id="sumHer"  type="text" value="0,-" disabled="disabled" /></td> <!-- Viser prisen i et inaktivt tekstfelt for at innholdet skal vises i bestillingseposten -->
         </tr>
       </table>
     </fieldset>
@@ -214,70 +214,70 @@
       <table align="left">
         <tr>
           <td><label for="fornavn">Fornavn: </label></td>
-          <td><input type="text" name="fornavn" id="fornavn" required></td>
+          <td><input type="text" name="fornavn" id="fornavn" required="required"/></td>
         </tr>
         <tr>
           <td><label for="etternavn">Etternavn: </label></td>
-          <td><input type="text" name="etternavn" id="etternavn" required></td>
+          <td><input type="text" name="etternavn" id="etternavn" required="required"/></td>
         </tr>
         <tr>
           <td><label for="gate">Adresse: </label></td>
-          <td><input type="text" name="gate" id="gate" required></td>
+          <td><input type="text" name="gate" id="gate" required="required"/></td>
           <td><label for="husnummer">Husnummer: </label></td>
-          <td><input type="number" name="husnummer" id="husnummer" max="1000" min="1" required></td>
+          <td><input type="number" name="husnummer" id="husnummer" max="1000" min="1" required="required"/></td>
         </tr>
         <tr>
           <td><label for="poststed">Poststed: </label></td>
-          <td><input type="text" name="poststed" id="poststed" required></td>
+          <td><input type="text" name="poststed" id="poststed" required="required"/></td>
           <td><label for="postnr">Postnummer: </label></td>
-          <td><input type="number" name="postnr" id="postnr" max="9999" min="1000" required></td>
+          <td><input type="number" name="postnr" id="postnr" max="9999" min="1000" required="required"/></td>
         </tr>
         <tr>
           <td><label for="epost">E-post: </label></td>
-          <td><input type="email" name="epost" id="epost" required></td>
+          <td><input type="email" name="epost" id="epost" required="required"/></td>
         </tr>
         <tr>
           <td><label for="mobil">Mobilnummer: </label></td>
-          <td><input type="tel" name="mobil" id="mobil" min="00000000" max="99999999" required></td>
+          <td><input type="tel" name="mobil" id="mobil" min="00000000" max="99999999" required="required"/></td>
         </tr>
         <tr>
           <td><label for="betalingstype">Betalingstype: </label></td>
-          <td><select id="betalingstype" required onchange="betalingskort()">   <!-- Skjuler eller viser betalingskortinfo. -->
+          <td><select id="betalingstype" required="required" onchange="betalingskort()">   <!-- Skjuler eller viser betalingskortinfo. -->
             <option>Betalingstype</option>
             <option>VISA</option>
             <option>MasterCard</option>
             <option>Faktura</option>
-          </select>
+          </select></td>
         </tr>
       </table>
     </fieldset>
-  </fieldset>
-    <table id="bestillingKnapper">
+    <table id="bestillingsKnapper">
       <tr>
-        <td><input type="submit" value="Bestill"></td>
-        <td><input type="reset" value="Tøm skjema"></td>
+        <td><input type="submit" value="Bestill"/></td>
+        <td><input type="reset" value="Tøm skjema"/></td>
       </tr>
     </table>
-  </fieldset>
     <fieldset id="kortinfo">
       <legend>Betalingsinformasjon</legend>
       <table align="left">
         <tr>
           <td><label for="kortnummer">Kortnummer: </label></td>
-          <td><input type="number" name="kortnummer" id="kortnummer"></td>
+          <td><input type="number" name="kortnummer" id="kortnummer"/></td>
         </tr>
         <tr>
           <td><label for="korteier">Kortholders navn: </label></td>
-          <td><input type="text" name="korteier" id="korteier"></td>
+          <td><input type="text" name="korteier" id="korteier"/></td>
         </tr>
         <tr>
           <td><label for="cvc">CVC-kode: </label></td>
-          <td><input type="number" name="cvc" id="cvc" max="999" min="0"></td>
+          <td><input type="number" name="cvc" id="cvc" max="999" min="0"/></td>
         </tr>
         <tr>
           <td><label for="utløp">Utløpsdato: </label></td>
-          <td><input type="month" name="utløp" id="utløp"></td>
+          <td><input type="month" name="utløp" id="utløp"/></td>
+        </tr>
       </table>
+    </fieldset>
     </form>
   </div>
 

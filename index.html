@@ -1,40 +1,42 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="no">
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
 <head>
   <title>Hytteparadiset</title>
-  <meta charset="utf-8"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta name="hytteutleie" content="Her kan du leie hytte!" />
   <meta name="keywords" content="hytteutleie, norsk, natur, hytte, ferie, fritid" />
   <link rel="stylesheet" type="text/css" href="stilark.css" />
-  <script src="http://www.w3schools.com/lib/w3data.js"></script> <!-- script for å inkludere filer med html-tagger -->
+  <script src="http://www.w3schools.com/lib/w3data.js" type="text/javascript"></script> <!-- script for å inkludere filer med html-tagger -->
 </head>
 
 <body>
   <div w3-include-html="tittel.html" id="heading"></div>
-  <script>w3IncludeHTML();</script>
-    <!--Avsnittet inkluderer filer med html-innhold for tittel og meny -->
+  <script type="text/javascript">w3IncludeHTML();</script>
+  <!--Avsnittet inkluderer filer med html-innhold for tittel og meny -->
 
-<div id="fremside" align="center">
-<img id="fjell" src="fjell.jpg"/> <!-- Rettigheter: https://www.flickr.com/photos/thelightningman/13310346494 -->
+<div id="fremside">
+<img id="fjell" alt="Fjellbilde" src="fjell.jpg"/> <!-- Rettigheter: https://www.flickr.com/photos/thelightningman/13310346494 -->
 <h1>Ut på tur, aldri sur!</h1>
 <h2>- Har du ingen egen hytte å reise til denne helgen? Lei deg et Hytteparadis, da vel -</h2>
 </div>
 
-<div id="reklame" align="center">
+<div id="reklame">
   <p>Hytteparadiset samarbeider tett med Skiforeningen og en rekke andre samarbeidspartnere.</p>
   <p>Ta kontakt med oss i dag, så kan du også få oppleve fantastisk, urørt norsk natur! Se <a href="hytte.html">våre hytter</a> her.</p>
 </div>
 
-<div id="kontaktinfo" align="center">
-<table>
-  <th id="kontakt">Hytteparadiset AS</th>
-  <th id="kontakt">Org Nr: 010203045</th>
-  <th id="kontakt">Adresse: Hytteveien 5, 5020 TRONDHEIM</th>
-  <th id="kontakt">Tlf: 99887766</th>
-  <th id="kontakt">E-post: hytte@hytteparadiset.no</th>
-  <th id="kontakt">Ansvarlig redaktør: Bjarne Skurdal</th>
+<div class="kontaktinfo">
+<table style="width:95%">
+  <tr>
+  <th class="kontakt">Hytteparadiset AS</th>
+  <th class="kontakt">Org Nr: 010203045</th>
+  <th class="kontakt">Adresse: Hytteveien 5, 5020 TRONDHEIM</th>
+  <th class="kontakt">Tlf: 99887766</th>
+  <th class="kontakt">E-post: hytte@hytteparadiset.no</th>
+  <th class="kontakt">Ansvarlig redaktør: Bjarne Skurdal</th>
+  </tr>
 </table>
 </div>
 </body>

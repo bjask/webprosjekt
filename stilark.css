@@ -4,10 +4,11 @@
   #kontakt {
     width: 300px;
   }
-  #kontaktinfo {
+  .kontaktinfo {
     margin-top: 50px;
     font-family: "Verdana";
     font-size: 0.8em;
+    text-align: center;
   }
   #husnummer {
     width: 40px;
@@ -16,12 +17,17 @@
     font-family: "verdana";
     font-size: 0.8em;
   }
+  #bestillingsKnapper {
+    border: 0;
+  }
   #fremside {
     margin-top: 50px;
+    text-align: center;
   }
   #reklame {
     margin-top: 50px;
     font-family: "Verdana";
+    text-align: center;
   }
   #postnr {
     width: 40px;

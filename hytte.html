@@ -11,7 +11,6 @@
   <script type="text/javascript" src="jquery-3.1.1.js"></script> <!-- script for å inkludere jQuerybiblioteket -->
   <script type="text/javascript" src="http://www.w3schools.com/lib/w3data.js"></script> <!-- script for å inkludere filer med html-tagger -->
   <script type="text/javascript" src="hyttevalgjavascript.js"></script> <!-- Her kjøres setningene ved valg av hytte på hyttesiden. -->
-
 <script type="text/javascript" >
 function bakgrunn(nummer) {
   $("tr.radstil" + nummer).css("background-color", "yellow");
@@ -28,9 +27,17 @@ function normal(nummer) {
   <script type="text/javascript">w3IncludeHTML();</script>  <!--Avsnittet inkluderer filer med html-innhold for tittel og meny -->
 
 <div id="map" ></div>     <!-- divisjon for Google Map -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+  <!-- Inkluderer javascriptbibliotek for å generere Google Map -->
+
+  <p id="hytteliste">Hyttene v&aring;re:</p>
+
+  <div class="main"></div>
+  <!--Divisjon for hytteinfo-->
 
 <script type="text/javascript" >
-function myMap() {                      //Lager Google Map på siden
+
+                      //Lager Google Map på siden
   var mapCanvas = document.getElementById("map");
   var myCenter = new google.maps.LatLng(63.428857, 10.390009);
   var Moserabben = new google.maps.LatLng(63.397818, 11.422038);
@@ -43,13 +50,16 @@ function myMap() {                      //Lager Google Map på siden
   var map1 = new google.maps.Map(mapCanvas, mapOptions);
   var marker = [new google.maps.Marker({position:Havblikk}), new google.maps.Marker({position:Moserabben}), new google.maps.Marker({position:Tussebo})];
   var infowindow = null;
-  var tekst;
+  var tekst = "";
+  var txt = "";
   var tellelengde = marker.length;
+  var infoboksinnhold = ["Havblikk", "Moserabben", "Tussebo"];
   for (i=0; i<=marker.length-1; i++){
     marker[i].setMap(map1);
   }
+  $(document).ready(function(){
+
   function kartklikk(klikkpunkt) {
-    var infoboksinnhold = ["Havblikk", "Moserabben", "Tussebo"];
     if (infowindow) {
       infowindow.close();
     }
@@ -63,7 +73,6 @@ function myMap() {                      //Lager Google Map på siden
 
   for (var i = 0; i<=marker.length-1; i++) {
     (function(i){
-      var punkt = marker[i];
   google.maps.event.addListener(marker[i],'click', function() {
     kartklikk(i);
   });
@@ -75,19 +84,23 @@ function myMap() {                      //Lager Google Map på siden
   });
 }(i));
 }
-
+setTimeout(function(){
+  for (var i = 0; i<=marker.length-1; i++) {
+    (function(i){
+      var j=i+1;
+$(".radstil" + j).click(function(){
+  kartklikk(i);});
+  $(".radstil" + j).hover(function(){
+    infowindow = new google.maps.InfoWindow({
+      content: infoboksinnhold[i]
+      });
+  infowindow.open(map1,marker[i]);
+},
+function(){infowindow.close();});
+}(i));
 }
-</script>
+}, 300);
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
-  <!-- Inkluderer javascriptbibliotek for å generere Google Map -->
-
-  <p id="hytteliste">Hyttene v&aring;re:</p>
-
-  <div class="main">  <!--Divisjon for hytteinfo-->
-  <script type="text/javascript">
-$(document).ready(function(){
- var txt = "";
  txt += '<p class="liten">Klikk på hyttene på kartet for mer info om dem.</p>';
  $.ajax({             // Her hentes hytteinfo fra hytter.xml-fila
    type: "GET",
@@ -96,7 +109,7 @@ $(document).ready(function(){
    success: function(xml) {
      $(xml).find("hytte").each(function(){
        txt += "<table class='hoved'>";
-       txt += "<tr class='radstil" + $(this).find("hyttenr").text() + "' ><td>Navn: " + $(this).find("navn").text() +
+       txt += "<tr class='radstil" + $(this).find("hyttenr").text() + "'><td>Navn: " + $(this).find("navn").text() +
        "</td><td>Sted: " + $(this).find("omraade").text() +
        "</td></tr><tr><td class='radstil'>Type: " + $(this).find("type").text() +
        "</td><td>Antall sengeplasser: " + $(this).find("antall_sengeplasser").text() +
@@ -108,9 +121,9 @@ $(document).ready(function(){
    }
   });
 
+
 });
 </script>
-</div>
 
 
 </body>

@@ -103,8 +103,15 @@
              alert("Dette er ikke et gyldig mobilnummer");
              return false;
            }
-           if (kjøperMobil.toString().length > 8) {
+           if (kjøperMobil.toString().length < 8) {
              alert("Dette er ikke et gyldig mobilnummer");
+             return false;
+           }
+           if (kjøperBetalingstype == "VISA" || kjøperBetalingstype == "MasterCard") {
+             var kort = window.document.getElementById("kortnummer").value;
+             if (toString(kort)!=16){
+               alert("Du må skrive inn et kortnummer med 16 siffer.")
+             }
              return false;
            }
            if (kjøperBetalingstype == "Betalingstype") {
@@ -143,18 +150,9 @@
            }
            if (kjøperBetalingstype == "Faktura") {
              window.document.getElementById("kortinfo").style.visibility = "hidden";
-             window.document.getElementById("kortnummer").required = "false";
-             window.document.getElementById("korteier").required = "false";
-             window.document.getElementById("cvc").required = "false";
-             window.document.getElementById("utløp").required = "false";
+
            }
-           if (kjøperBetalingstype == "Betalingstype") {
-             window.document.getElementById("kortinfo").style.visibility = "hidden";
-             window.document.getElementById("kortnummer").required = "false";
-             window.document.getElementById("korteier").required = "false";
-             window.document.getElementById("cvc").required = "false";
-             window.document.getElementById("utløp").required = "false";
-           }
+
          }
        </script>
 <div id="bestillingsskjema" align="center">
@@ -238,11 +236,11 @@
         </tr>
         <tr>
           <td><label for="mobil">Mobilnummer: </label></td>
-          <td><input type="tel" name="mobil" id="mobil" min="00000000" max="99999999" required="required"/></td>
+          <td><input type="tel" name="mobil" id="mobil" min="10000000" max="99999999" required="required"/></td>
         </tr>
         <tr>
           <td><label for="betalingstype">Betalingstype: </label></td>
-          <td><select id="betalingstype" required="required" onchange="betalingskort()">   <!-- Skjuler eller viser betalingskortinfo. -->
+          <td><select id="betalingstype" onchange="betalingskort()">   <!-- Skjuler eller viser betalingskortinfo. -->
             <option>Betalingstype</option>
             <option>VISA</option>
             <option>MasterCard</option>
@@ -262,7 +260,7 @@
       <table align="left">
         <tr>
           <td><label for="kortnummer">Kortnummer: </label></td>
-          <td><input type="number" name="kortnummer" id="kortnummer"/></td>
+          <td><input type="number" name="kortnummer" id="kortnummer" /></td>
         </tr>
         <tr>
           <td><label for="korteier">Kortholders navn: </label></td>

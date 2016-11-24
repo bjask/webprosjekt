@@ -14,7 +14,7 @@
 <script type="text/javascript" >
 function bakgrunn(nummer) {
   $("tr.radstil" + nummer).css("background-color", "yellow");
-}
+}     //Disse to funksjonene endrer bakgrunnsfargen i tabellen ved mus over markør i kartet.
 function normal(nummer) {
   $("tr.radstil" + nummer).css("background-color", "initial");
 }
@@ -59,7 +59,7 @@ function normal(nummer) {
   }
   $(document).ready(function(){
 
-  function kartklikk(klikkpunkt) {
+  function kartklikk(klikkpunkt) {  //funksjon som aktiveres ved klikking på markør i kartet
     if (infowindow) {
       infowindow.close();
     }
@@ -74,11 +74,11 @@ function normal(nummer) {
   for (var i = 0; i<=marker.length-1; i++) {
     (function(i){
   google.maps.event.addListener(marker[i],'click', function() {
-    kartklikk(i);
+    kartklikk(i);  //Her aktiveres klikk på markør i kartet.
   });
   google.maps.event.addListener(marker[i],'mouseover', function() {
     bakgrunn(i+1);
-  });
+  });             //Her aktiveres mus-over-effekter ved mus over markør i kartet.
   google.maps.event.addListener(marker[i],'mouseout', function() {
     normal(i+1);
   });
@@ -88,9 +88,9 @@ setTimeout(function(){
   for (var i = 0; i<=marker.length-1; i++) {
     (function(i){
       var j=i+1;
-$(".radstil" + j).click(function(){
+$(".radstil" + j).click(function(){  //Her aktiveres hyttevalg ved klikk i tabellen.
   kartklikk(i);});
-  $(".radstil" + j).hover(function(){
+  $(".radstil" + j).hover(function(){   //Her lages infovindu ved mus over hytte i tabellen
     infowindow = new google.maps.InfoWindow({
       content: infoboksinnhold[i]
       });
@@ -102,7 +102,7 @@ function(){infowindow.close();});
 }, 300);
 
  txt += '<p class="liten">Klikk på hyttene på kartet for mer info om dem.</p>';
- $.ajax({             // Her hentes hytteinfo fra hytter.xml-fila
+ $.ajax({             // Her hentes  kort hytteinfo om hver hytte fra hytter.xml-fila og legges i tabell.
    type: "GET",
    url: "hytter.xml",
    dataType: "xml",

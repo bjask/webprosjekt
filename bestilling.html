@@ -43,8 +43,8 @@
            default:
             hyttenr="x";
          }
-         if (hyttenr=="x"||bruksomrade=="Bruk") {
-           alert("Du må velge både hytte og type bruk før du kan regne ut en pris.");
+         if (hyttenr=="x"||bruksomrade=="Bruk"||tid=="0") {  //Her kommer litt skjemakontroll før beregning av prisen.
+           alert("Du må velge både hytte, type bruk og antall timer/døgn før du kan regne ut en pris.");
          }
            else {
 
@@ -57,7 +57,7 @@
          timepris = tekst + hyttenr + '"] timepris';
          dognpris = tekst + hyttenr + '"] dognpris';
 
-           $.ajax({          //Her hentes info om hyttene fra hytter.xml-fila.
+           $.ajax({          //Her hentes info om time- og døgnpriser for hyttene fra hytter.xml-fila.
            type: "GET",
            url: "hytter.xml",
            dataType: "xml",
@@ -81,7 +81,7 @@
         sum = Math.round(sum * 0.85);
       }
 
-      window.document.getElementById("sumHer").value = "Kr " + sum + ",-";     //Skriver prisen til det skjulte tekstfeltet.
+      window.document.getElementById("sumHer").value = "Kr " + sum + ",-";     //Skriver prisen til det inaktive tekstfeltet.
     }, 300);
         }
       }
